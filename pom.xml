@@ -8,11 +8,11 @@
 		<version>3.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.spring_security_project</groupId>
-	<artifactId>spring_SECURITY</artifactId>
+	<groupId>epic_energies</groupId>
+	<artifactId>epic_energies</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring_SECURITY</name>
-	<description>Demo project for Spring Boot</description>
+	<name>epic_energies</name>
+	<description>epic_energies project</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
