@@ -6,8 +6,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "Costumers")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Customer {
 	
 	private String businessName;
@@ -20,6 +28,7 @@ public class Customer {
 	private String contactEmail;
 	private String contactName;
 	private String contactPhone;
+	
 	@Enumerated(EnumType.STRING)
 	private CostumerType CostumerType;
 	@OneToOne
