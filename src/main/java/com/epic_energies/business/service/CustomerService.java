@@ -14,46 +14,46 @@ import com.epic_energies.business.repository.OperativeAdressDAO;
 
 @Service
 public class CustomerService {
-	@Autowired CustomerDAO customerRep;
-	@Autowired OperativeAdressDAO opAdressRep;
-	@Autowired LegalAdressDAO legAdressRep;
-	
-	@Autowired
-	@Qualifier("FakeCustomer")
-	private ObjectProvider<Customer> customerProvider;
-	
-	@Autowired
-	@Qualifier("FakeOperativeAdress")
-	private ObjectProvider<OperativeAdress> opAdressProvider;
-	
-	@Autowired
-	@Qualifier("fakeLegalAdress")
-	private ObjectProvider<LegalAdress> LegalAdressProvider;
-	
-	public Customer insertCustomer(Customer c) {
-		customerRep.save(c);
-		return c;
-	}
-	
-	public OperativeAdress insertOperativeAdress(OperativeAdress opAdr) {
-		opAdressRep.save(opAdr);
-		return opAdr;
-	}
-	
-	public LegalAdress insertLegalAdress(LegalAdress legAdr) {
-		legAdressRep.save(legAdr);
-		return legAdr;
-	}
-		
-	public Customer createCustomer() {
-		return insertCustomer(customerProvider.getObject());
-	}
-	
-	public OperativeAdress createoperAdress() {
-		return insertOperativeAdress(opAdressProvider.getObject());
-	}
-	
-	public LegalAdress createopAdress() {
-		return insertLegalAdress(LegalAdressProvider.getObject());
-	}
+    @Autowired
+    CustomerDAO customerRep;
+    @Autowired
+    OperativeAdressDAO opAdressRep;
+    @Autowired
+    LegalAdressDAO legAdressRep;
+
+    @Autowired
+    @Qualifier("FakeCustomer")
+    private ObjectProvider<Customer> customerProvider;
+
+    @Autowired
+    @Qualifier("FakeOperativeAdress")
+    private ObjectProvider<OperativeAdress> opAdressProvider;
+
+    @Autowired
+    @Qualifier("FakeLegalAdress")
+    private ObjectProvider<LegalAdress> legalAdressProvider;
+
+    public void insertCustomer(Customer c) {
+	customerRep.save(c);
+    }
+
+    public void insertOperativeAdress(OperativeAdress opAdr) {
+	opAdressRep.save(opAdr);
+    }
+
+    public void insertLegalAdress(LegalAdress legAdr) {
+	legAdressRep.save(legAdr);
+    }
+
+    public void createCustomer() {
+	insertCustomer(customerProvider.getObject());
+    }
+
+    public void createoperAdress() {
+	insertOperativeAdress(opAdressProvider.getObject());
+    }
+
+    public void createopAdress() {
+	insertLegalAdress(legalAdressProvider.getObject());
+    }
 }
