@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.epic_energies.business.model.Province;
 import com.epic_energies.business.repository.ProvinceRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -43,6 +44,33 @@ public class ProvinceService {
 	public void persistProvince(Province p) {
 		provRepo.save(p);
 		log.info("province correctly persisted on Database");
+	}
+	
+	public void updateProvince(Province p) {
+		if (provRepo.existsById(p.getId())) {
+			provRepo.save(p);
+			log.info("province correctly updated on Database");
+		} else {
+			throw new EntityNotFoundException("Province with ID --> " + p.getId() + " doesn't exists on Database!");
+		}
+	}
+
+	public void deleteProvince(Long id) {
+		if (provRepo.existsById(id)) {
+			provRepo.deleteById(id);
+			log.info("province correctly deleted from Database");
+		} else {
+			throw new EntityNotFoundException("Province with ID --> " + id + " doesn't exists on Database!");
+		}
+	}
+	
+	public void deleteProvince(Province p) {
+		if (provRepo.existsById(p.getId())) {
+			provRepo.delete(p);
+			log.info("province correctly deleted from Database");
+		} else {
+			throw new EntityNotFoundException("Province with ID --> " + p.getId() + " doesn't exists on Database!");
+		}
 	}
 	
 	public List<Province> findAllProvinces() {
