@@ -25,6 +25,7 @@ import lombok.NoArgsConstructor;
 public class Fattura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Integer anno;
     private Date data;
     private BigDecimal importo;
