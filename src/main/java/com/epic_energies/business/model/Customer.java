@@ -43,6 +43,6 @@ public class Customer {
     @OneToOne
     private OperativeAdress operativeAdress;
     @OneToMany
-    private List<Fattura> fatture;
+    private List<Invoice> fatture;
 
 }

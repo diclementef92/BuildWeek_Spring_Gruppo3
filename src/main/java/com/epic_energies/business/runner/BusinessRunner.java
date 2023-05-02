@@ -5,17 +5,17 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.epic_energies.business.service.FatturaService;
+import com.epic_energies.business.service.InvoiceService;
 
 @Component
 public class BusinessRunner implements ApplicationRunner {
     @Autowired
-    private FatturaService fatturaService;
+    private InvoiceService invoiceService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 	System.out.println("Fattura creata!");
-	fatturaService.createFattura();
+	invoiceService.createInvoice();
 
     }
 
