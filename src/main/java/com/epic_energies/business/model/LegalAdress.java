@@ -24,7 +24,7 @@ public class LegalAdress {
     private String place;
     private String postCode;
 
-    @ManyToOne
-    private String Municipality;
+    //@ManyToOne
+    //private String Municipality;
 
 }
