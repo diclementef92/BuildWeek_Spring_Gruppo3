@@ -13,6 +13,7 @@ import com.epic_energies.business.model.Municipality;
 import com.epic_energies.business.model.Province;
 import com.epic_energies.business.repository.MunicipalityRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -50,9 +51,41 @@ public class MunicipalityService {
 	}	
 	
 	// jpa methods
+	
 	public void persistMunicipality(Municipality m) {
 		muniRepo.save(m);
 		log.info("municipality correctly persited on Database");
+	}
+	
+	public void updateMunicipality(Municipality m) {
+		if (muniRepo.existsById(m.getId())) {
+			muniRepo.save(m);
+			log.info("municipality correctly updated on Database");
+		} else {
+			throw new EntityNotFoundException("Municipality with ID --> " + m.getId() + " doesn't exists on Database!");
+		}
+	}
+	
+	public void deleteMunicipality(Long id) {
+		if (muniRepo.existsById(id)) {
+			muniRepo.deleteById(id);
+			log.info("municipality correctly removed from Database");
+		} else {
+			throw new EntityNotFoundException("Municipality with ID --> " + id + " doesn't exists on Database!");
+		}
+	}
+	
+	public void deleteMunicipality(Municipality m) {
+		if (muniRepo.existsById(m.getId())) {
+			muniRepo.delete(m);
+			log.info("municipality correctly removed from Database");
+		} else {
+			throw new EntityNotFoundException("Municipality with ID --> " + m.getId() + " doesn't exists on Database!");
+		}
+	}
+	
+	public Municipality findById(Long id) {
+		return muniRepo.findById(id).get();
 	}
 	
 	public List<Municipality> findAllMunicipality() {
