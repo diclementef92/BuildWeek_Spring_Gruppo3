@@ -26,15 +26,15 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String businessName;
-    private String vatNumber;
+    private Long vatNumber;
     private String email;
     private LocalDate insertData;
     private LocalDate lastContactData;
-    private Integer pec;
-    private Integer phoneNumber;
+    private String pec;
+    private Long phoneNumber;
     private String contactEmail;
     private String contactName;
-    private String contactPhone;
+    private Long contactPhone;
 
     @Enumerated(EnumType.STRING)
     private CostumerType CostumerType;
