@@ -2,11 +2,14 @@ package com.epic_energies.business.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,25 +28,11 @@ public class Province {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String abbr;
-	String name;
-	String county;
+	private Long id;
+	private String abbr;
+	private String name;
+	private String county;
+	@OneToMany(mappedBy="province", fetch = FetchType.EAGER)
+	private List<Municipality> municipalities;
 	
-	public static void importProvinces() throws FileNotFoundException {
-		Scanner sc = new Scanner(new File("src\\main\\resources\\data\\Province.csv"));
-		sc.useDelimiter(",");
-		
-		while (sc.hasNext()) {
-
-			String[] fileToString = sc.next().split("\n");
-			for (String s : fileToString) {
-				String[] pToString = s.split(";");
-				Province p = Province.builder().abbr(pToString[0]).name(pToString[1]).county(pToString[2]).build();
-				// QUI METODO SAVE PER SALVARE SU DB
-			}
-		}
-		
-		sc.close();
-	}
 }
