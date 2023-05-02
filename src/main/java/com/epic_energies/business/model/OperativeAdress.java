@@ -24,6 +24,6 @@ public class OperativeAdress {
 	private String place;
 	private String postCode;
 	// @ManyToOne
-	// private String Municipality;
+	private String Municipality;
 
 }
