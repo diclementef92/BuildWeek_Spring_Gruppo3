@@ -43,7 +43,7 @@ Un indirizzo Ã¨ composto da
 2) gruppetto
 I comuni sono gestiti attraverso un'anagrafica centralizza e sono caratterizzati da un nome e da un riferimento ad una provincia, anch'essa gestita in anagrafica centralizzata e caratterizzata da un nome ed una sigla. 
 
-estrazione dati da vedere con rino ??!?!?!
+estrazione dati -> alessandro
 
 
 
