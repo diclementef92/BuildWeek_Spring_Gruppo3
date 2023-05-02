@@ -19,10 +19,8 @@ import com.github.javafaker.Faker;
 @Configuration
 public class BusinessConfig {
 
-    @Autowired
-    LegalAdressDAO legalAdressDao;
-    @Autowired
-    OperativeAdressDAO opertiveAddressDao;
+    @Autowired LegalAdressDAO legalAdressDao;
+    @Autowired OperativeAdressDAO opertiveAddressDao;
 
     @Bean("FakeOperativeAdress")
     @Scope("prototype")
@@ -51,33 +49,49 @@ public class BusinessConfig {
     @Bean("FakeCustomer")
     @Scope("prototype")
     public Customer fakeCustomer() {
+    	
 	Customer customer = new Customer();
 	Faker fake = Faker.instance(new Locale("en-EN"));
-	customer.setBusinessName(fake.company().name());
-	customer.setVatNumber(fake.number().numberBetween(10000000001l, 100000000000l));
-	customer.setContactName(fake.name().fullName());
-	customer.setEmail(customer.getContactName() + "gmail.com");
-	customer.setInsertData(LocalDate.of(2023, 5, (int) Math.floor(Math.random() * 30 + 1)));
-	customer.setLastContactData(LocalDate.of(2023, 5, (int) Math.floor(Math.random() * 30 + 1)));
-	customer.setPec(customer.getContactName() + "gmail.com");
-	customer.setPhoneNumber(3490000000l + fake.number().numberBetween(1l, 10000000l));
-	customer.setContactEmail(customer.getContactName() + "gmail.com");
-	customer.setContactPhone(3490000000l + fake.number().numberBetween(1l, 10000000l));
-	customer.setCostumerType(null);
-	int num = fake.number().numberBetween(1, 5);
-	if (num == 1) {
-	    customer.setCostumerType(CostumerType.PA);
-	} else if (num == 2) {
-	    customer.setCostumerType(CostumerType.SAS);
-	} else if (num == 3) {
-	    customer.setCostumerType(CostumerType.SPA);
-	} else if (num == 4) {
-	    customer.setCostumerType(CostumerType.SRL);
+	String companyName = fake.company().name();
+	String[] companyArray = companyName.split(" ");
+	String companyEmail = "info_" + "@" + companyArray[0] + ".com";
+	String fName = fake.name().firstName();
+	String lName = fake.name().lastName();
+	String contactEmail = fName.substring(0, 1) + "." + lName + "@example.com";
+	int RandomType = fake.number().numberBetween(0, 3);
+	String pec;
+	if (companyArray.length > 1) {
+		pec = companyArray[0] + "." + companyArray[1] + "@pec.it";		
 	} else {
-	    System.out.println("No Costumer type supported");
+		pec = companyArray[0] + "@pec.it";
 	}
-	customer.setOperativeAdress(opertiveAddressDao.getById(1l));
-	customer.setLegalAdress(legalAdressDao.getById(1l));
-	return customer;
+	
+	
+	return Customer.builder()
+			.businessName(companyName)
+			.vatNumber(fake.number().numberBetween(10000000001l, 100000000000l))
+			.contactName(fName + " " + lName)
+			.email(companyEmail)
+			.insertData(LocalDate.of(2023, 5, (int) Math.floor(Math.random() * 30 + 1)))
+			.lastContactData(LocalDate.of(2023, 5, (int) Math.floor(Math.random() * 30 + 1)))
+			.pec(pec)
+			.phoneNumber(3490000000l + fake.number().numberBetween(1l, 10000000l))
+			.contactEmail(contactEmail)
+			.contactPhone(3490000000l + fake.number().numberBetween(1l, 10000000l))
+			.costumerType(getRandomCustomeType(RandomType))
+			.operativeAdress(null)
+			.legalAdress(null)
+			.build();
+    }
+    
+    private CostumerType getRandomCustomeType(int random) {
+    	CostumerType type = null;
+    	switch (random) {
+    	case 0 -> type = CostumerType.PA;
+    	case 1 -> type = CostumerType.SAS;
+    	case 2 -> type = CostumerType.SPA;
+    	case 3 -> type = CostumerType.SRL;
+    	}
+    	return type;
     }
 }
