@@ -55,6 +55,10 @@ public class MunicipalityService {
 		log.info("municipality correctly persited on Database");
 	}
 	
+	public List<Municipality> findAllMunicipality() {
+		return (List<Municipality>) muniRepo.findAll();
+	}
+	
 	
 	
 }
