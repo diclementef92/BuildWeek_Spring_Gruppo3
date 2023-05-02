@@ -16,13 +16,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class LegalAdress {
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-	private String streetName;
-	private Integer streetNumber;
-	private String place;
-	private String postCode;
-	@ManyToOne
-	private String Municipality;
+    private Long Id;
+    private String streetName;
+    private Integer streetNumber;
+    private String place;
+    private String postCode;
+
+    @ManyToOne
+    private String Municipality;
+
 }
