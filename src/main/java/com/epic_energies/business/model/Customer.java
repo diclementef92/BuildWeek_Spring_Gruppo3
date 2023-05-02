@@ -40,7 +40,7 @@ public class Customer {
 	@OneToOne
 	private LegalAdress legalAdress;
 	@OneToOne
-	private LegalAdress operativeAdress;
+	private OperativeAdress operativeAdress;
 	
 	
 	
