@@ -42,7 +42,7 @@ public class Customer {
     private LegalAdress legalAdress;
     @OneToOne
     private OperativeAdress operativeAdress;
-    @OneToMany
-    private List<Fattura> fatture;
+    //@OneToMany
+    //private List<Fattura> fatture;
 
 }

@@ -22,7 +22,7 @@ public class LegalAdress {
     private String streetName;
     private Integer streetNumber;
     private String place;
-    private String postCode;
+    private Integer postCode;
 
     //@ManyToOne
     //private String Municipality;
