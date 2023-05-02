@@ -9,6 +9,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,8 +32,7 @@ public class Fattura {
     private Integer numero;
     @Enumerated(EnumType.STRING)
     private StatoFattura stato_fattura;
-    /*
-     * @ManyToOne private Customer customer;
-     */
+    @ManyToOne
+    private Customer customer;
 
 }
