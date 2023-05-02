@@ -1,5 +1,7 @@
 package com.epic_energies.business.service;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,15 +13,18 @@ import com.epic_energies.business.model.OperativeAdress;
 import com.epic_energies.business.repository.CustomerDAO;
 import com.epic_energies.business.repository.LegalAdressDAO;
 import com.epic_energies.business.repository.OperativeAdressDAO;
+import com.github.javafaker.Faker;
 
 @Service
 public class CustomerService {
     @Autowired
     CustomerDAO customerRep;
     @Autowired
-    OperativeAdressDAO opAdressRep;
+    OperativeAdressDAO opAddressRep;
     @Autowired
-    LegalAdressDAO legAdressRep;
+    LegalAdressDAO legAddressRep;
+    
+    private Faker fake = Faker.instance(new Locale("it-IT"));
 
     @Autowired
     @Qualifier("FakeCustomer")
@@ -27,33 +32,37 @@ public class CustomerService {
 
     @Autowired
     @Qualifier("FakeOperativeAdress")
-    private ObjectProvider<OperativeAdress> opAdressProvider;
+    private ObjectProvider<OperativeAdress> opAddressProvider;
 
     @Autowired
     @Qualifier("FakeLegalAdress")
-    private ObjectProvider<LegalAdress> legalAdressProvider;
+    private ObjectProvider<LegalAdress> legalAddressProvider;
 
+    public void persistFakeCustomer() {
+    	Customer c = customerProvider.getObject();
+    	LegalAdress legalAdd = legalAddressProvider.getObject();
+    	legAddressRep.save(legalAdd);
+    	c.setLegalAdress(legalAdd);
+    	if (fake.number().numberBetween(0, 10) > 7) {
+    		OperativeAdress opAddress = opAddressProvider.getObject();
+    		opAddressRep.save(opAddress);
+    		c.setOperativeAdress(opAddress);
+    	}
+    	
+    	customerRep.save(c);
+    	
+    }
+    
     public void insertCustomer(Customer c) {
-	customerRep.save(c);
+    		customerRep.save(c);
     }
 
     public void insertOperativeAdress(OperativeAdress opAdr) {
-	opAdressRep.save(opAdr);
+	opAddressRep.save(opAdr);
     }
 
     public void insertLegalAdress(LegalAdress legAdr) {
-	legAdressRep.save(legAdr);
+	legAddressRep.save(legAdr);
     }
 
-    public void createCustomer() {
-	insertCustomer(customerProvider.getObject());
-    }
-
-    public void createoperAdress() {
-	insertOperativeAdress(opAdressProvider.getObject());
-    }
-
-    public void createopAdress() {
-	insertLegalAdress(legalAdressProvider.getObject());
-    }
 }
