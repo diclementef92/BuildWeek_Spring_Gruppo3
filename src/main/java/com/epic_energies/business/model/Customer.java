@@ -1,7 +1,7 @@
 package com.epic_energies.business.model;
 
 import java.time.LocalDate;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -22,6 +22,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class Customer {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,6 +31,7 @@ public class Customer {
     private String email;
     private LocalDate insertData;
     private LocalDate lastContactData;
+    private Integer annualIncome;
     private String pec;
     private Long phoneNumber;
     private String contactEmail;
@@ -37,12 +39,17 @@ public class Customer {
     private Long contactPhone;
 
     @Enumerated(EnumType.STRING)
-    private CostumerType costumerType;
+    private E_CustomerType costumerType;
+    
+    @Column(nullable = false)
     @OneToOne
-    private LegalAdress legalAdress;
+    private Address legalAddress;
+    
+    @Column(nullable = true)
     @OneToOne
-    private OperativeAdress operativeAdress;
-    // @OneToMany
-    // private List<Fattura> fatture;
+    private Address operativeAddress;
+    
+    //@OneToMany
+    //private List<Fattura> fatture;
 
 }
