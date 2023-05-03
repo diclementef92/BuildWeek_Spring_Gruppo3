@@ -1,15 +1,18 @@
 package com.epic_energies.business.service;
 
+import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import com.epic_energies.business.model.Customer;
+
 import com.epic_energies.business.model.Address;
-import com.epic_energies.business.repository.CustomerDAO;
+import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.repository.AddressDAO;
+import com.epic_energies.business.repository.CustomerDAO;
 import com.github.javafaker.Faker;
 
 @Service
@@ -51,5 +54,21 @@ public class CustomerService {
     	}
     	return "";
     }
+
+	public Optional<List<Customer>> getAllCustomersOrderByBusinessName() {
+		return customerRep.getAllCustomersOrderByBusinessName();
+	}
+
+	public Optional<List<Customer>> getAllCustomersOrderByAnnualIncome() {
+		return customerRep.getAllCustomersOrderByAnnualIncome();
+	}
+
+	public Optional<List<Customer>> getAllCustomersOrderByInsertData() {
+		return customerRep.getAllCustomersOrderByInsertData();
+	}
+
+	public Optional<List<Customer>> getAllCustomersOrderByLastContactData() {
+		return customerRep.getAllCustomersOrderByLastContactData();
+	}
 
 }
