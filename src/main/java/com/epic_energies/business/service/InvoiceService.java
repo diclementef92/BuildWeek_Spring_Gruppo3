@@ -2,6 +2,7 @@ package com.epic_energies.business.service;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +11,16 @@ import org.springframework.stereotype.Service;
 
 import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.model.Invoice;
-import com.epic_energies.business.repository.CustomerDAO;
 import com.epic_energies.business.repository.InvoiceDao;
 import com.github.javafaker.Faker;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class InvoiceService {
     @Autowired
     private InvoiceDao fatturaDao;
 
-    @Autowired
-    private CustomerDAO customerDAO;
     @Autowired
     private CustomerService customerService;
 
@@ -46,6 +46,25 @@ public class InvoiceService {
 	Invoice i = objFattura.getObject();
 	i.setCustomer(c);
 	fatturaDao.save(i);
+    }
+
+    // -------------- FIND AND GET --------------
+
+    public Invoice FindInvoiceById(Long id) {
+	if (fatturaDao.existsById(id)) {
+	    return fatturaDao.findById(id).get();
+	} else {
+	    throw new EntityNotFoundException("Invoice with ID --> " + id + " doesn't exists on Database!");
+	}
+
+    }
+
+    public Optional<List<Invoice>> getAllInvoicesOrderByLastData() {
+	return fatturaDao.findByDate();
+    }
+
+    public List<Invoice> findAll() {
+	return (List<Invoice>) fatturaDao.findAll();
     }
 
 }
