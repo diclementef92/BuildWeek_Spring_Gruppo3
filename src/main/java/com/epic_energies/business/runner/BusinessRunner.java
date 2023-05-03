@@ -18,12 +18,12 @@ public class BusinessRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-	System.out.println("Customer creato!");
+		System.out.println("Customer runner");
 	
-	for (int i = 0; i < 10; i++) {
-		custService.persistFakeCustomer();
-
-	}
+//	for (int i = 0; i < 10; i++) {
+//		custService.persistFakeCustomer();
+//
+//	}
 	
 	// TODO Auto-generated method stub
 		
@@ -36,6 +36,11 @@ public class BusinessRunner implements ApplicationRunner {
 		if (munService.findAllMunicipality().size() < 1) {
 			munService.importAllMunicipalities();
 		}
+
+//		System.out.println(custService.getAllCustomersOrderByBusinessName().get());
+//		System.out.println(custService.getAllCustomersOrderByAnnualIncome().get());
+//		System.out.println(custService.getAllCustomersOrderByInsertData().get());
+		System.out.println(custService.getAllCustomersOrderByLastContactData().get());
 
     }
 

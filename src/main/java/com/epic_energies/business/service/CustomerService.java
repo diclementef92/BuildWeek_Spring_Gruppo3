@@ -71,4 +71,12 @@ public class CustomerService {
 		return customerRep.getAllCustomersOrderByLastContactData();
 	}
 
+	public Optional<List<Customer>> findAllByBusinessNameLike(String businessName) {
+		return customerRep.findAllByBusinessNameLike(businessName);
+	}
+
+	public Optional<List<Customer>> findAllByContactNameLike(String contactName) {
+		return customerRep.findAllByContactNameLike(contactName);
+	}
+
 }
