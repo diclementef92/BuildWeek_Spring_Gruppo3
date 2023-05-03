@@ -38,4 +38,11 @@ public class Invoice {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+	@Override
+	public String toString() {
+		return "Invoice [id=" + id + ", year=" + year + ", date=" + date + ", amount=" + amount + ", number=" + number
+				+ ", invoice_status=" + invoice_status + ", customer ID=" + customer.getId() + "]";
+	}
+
+    
 }
