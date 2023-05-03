@@ -1,18 +1,17 @@
 package com.epic_energies.business.model;
 
 import java.time.LocalDate;
-import java.util.List;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,29 +19,35 @@ import lombok.NoArgsConstructor;
 @Table(name = "customers")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Data
 public class Customer {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String businessName;
-    private String vatNumber;
+    private Long vatNumber;
     private String email;
     private LocalDate insertData;
     private LocalDate lastContactData;
-    private Integer pec;
-    private Integer phoneNumber;
+    private Integer annualIncome;
+    private String pec;
+    private Long phoneNumber;
     private String contactEmail;
     private String contactName;
-    private String contactPhone;
+    private Long contactPhone;
 
     @Enumerated(EnumType.STRING)
-    private CostumerType CostumerType;
+    private E_CustomerType costumerType;
+    
     @OneToOne
-    private LegalAdress legalAdress;
+    private Address legalAddress;
+    
     @OneToOne
-    private OperativeAdress operativeAdress;
-    @OneToMany
-    private List<Invoice> fatture;
+    private Address operativeAddress;
+    
+    //@OneToMany
+    //private List<Fattura> fatture;
 
 }
