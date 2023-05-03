@@ -9,6 +9,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Entity
-@Table(name = "fattura")
+@Table(name = "invoices")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Invoice {
@@ -32,7 +33,9 @@ public class Invoice {
     private Integer number;
     @Enumerated(EnumType.STRING)
     private InvoiceStatus invoice_status;
+
     @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
 }
