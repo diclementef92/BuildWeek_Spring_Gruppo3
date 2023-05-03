@@ -15,60 +15,79 @@ import com.epic_energies.business.repository.AddressDAO;
 import com.epic_energies.business.repository.CustomerDAO;
 import com.github.javafaker.Faker;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class CustomerService {
-    @Autowired private CustomerDAO customerRep;
-    @Autowired private AddressDAO AddressRep;
+    @Autowired
+    private CustomerDAO customerRep;
+    @Autowired
+    private AddressDAO AddressRep;
 
-    @Autowired @Qualifier("FakeCustomer")
+    @Autowired
+    @Qualifier("FakeCustomer")
     private ObjectProvider<Customer> customerProvider;
 
-    @Autowired @Qualifier("FakeOpAddress")
+    @Autowired
+    @Qualifier("FakeOpAddress")
     private ObjectProvider<Address> opAddressProvider;
 
-    @Autowired @Qualifier("FakeLegAddress")
+    @Autowired
+    @Qualifier("FakeLegAddress")
     private ObjectProvider<Address> legalAddressProvider;
 
     private Faker fake = Faker.instance(new Locale("it-IT"));
-    
+
     public void persistFakeCustomer() {
-    	Customer c = customerProvider.getObject();
-    	Address lAddress = legalAddressProvider.getObject();
-    	AddressRep.save(lAddress);
-    	c.setLegalAddress(lAddress);
-    	if (fake.number().numberBetween(0, 10) > 7) {
-    		Address opAddress = opAddressProvider.getObject();
-    		AddressRep.save(opAddress);
-    		c.setOperativeAddress(opAddress);
-    	}
-    	customerRep.save(c);
+	Customer c = customerProvider.getObject();
+	Address lAddress = legalAddressProvider.getObject();
+	AddressRep.save(lAddress);
+	c.setLegalAddress(lAddress);
+	if (fake.number().numberBetween(0, 10) > 7) {
+	    Address opAddress = opAddressProvider.getObject();
+	    AddressRep.save(opAddress);
+	    c.setOperativeAddress(opAddress);
+	}
+	customerRep.save(c);
     }
-    
+
     public void insertCustomer(Customer c) {
-    		customerRep.save(c);
+	customerRep.save(c);
     }
-    
+
     public String updateCustomer(Customer c) {
-    	if (customerRep.existsById(c.getId())) {
-    		
-    	}
-    	return "";
+	if (customerRep.existsById(c.getId())) {
+
+	}
+	return "";
     }
 
-	public Optional<List<Customer>> getAllCustomersOrderByBusinessName() {
-		return customerRep.getAllCustomersOrderByBusinessName();
-	}
+    public Optional<List<Customer>> getAllCustomersOrderByBusinessName() {
+	return customerRep.getAllCustomersOrderByBusinessName();
+    }
 
-	public Optional<List<Customer>> getAllCustomersOrderByAnnualIncome() {
-		return customerRep.getAllCustomersOrderByAnnualIncome();
-	}
+    public Optional<List<Customer>> getAllCustomersOrderByAnnualIncome() {
+	return customerRep.getAllCustomersOrderByAnnualIncome();
+    }
 
-	public Optional<List<Customer>> getAllCustomersOrderByInsertData() {
-		return customerRep.getAllCustomersOrderByInsertData();
-	}
+    public Optional<List<Customer>> getAllCustomersOrderByInsertData() {
+	return customerRep.getAllCustomersOrderByInsertData();
+    }
 
-	public Optional<List<Customer>> getAllCustomersOrderByLastContactData() {
-		return customerRep.getAllCustomersOrderByLastContactData();
+    public Optional<List<Customer>> getAllCustomersOrderByLastContactData() {
+	return customerRep.getAllCustomersOrderByLastContactData();
+    }
+
+    public Customer findCustomerById(Long id) {
+	if (customerRep.existsById(id)) {
+	    return customerRep.findById(id).get();
+	} else {
+	    throw new EntityNotFoundException("Customer with ID --> " + id + " doesn't exists on Database!");
 	}
+    }
+
+    public List<Customer> findAll() {
+	return (List<Customer>) customerRep.findAll();
+    }
 
 }
