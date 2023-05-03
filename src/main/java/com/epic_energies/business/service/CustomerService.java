@@ -1,5 +1,6 @@
 package com.epic_energies.business.service;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.ObjectProvider;
@@ -11,6 +12,8 @@ import com.epic_energies.business.model.Address;
 import com.epic_energies.business.repository.CustomerDAO;
 import com.epic_energies.business.repository.AddressDAO;
 import com.github.javafaker.Faker;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class CustomerService {
@@ -39,6 +42,23 @@ public class CustomerService {
     		c.setOperativeAddress(opAddress);
     	}
     	customerRep.save(c);
+    }
+    
+    public String persistCustomer(Customer c) {
+    	customerRep.save(c);
+    	return "Customer correctly persisted on Database!";
+    }
+    
+    public Customer findCustomerById(Long id) {
+    	if (customerRep.existsById(id)) {
+    		return customerRep.findById(id).get();
+    	} else {
+    		throw new EntityNotFoundException("Customer with ID --> " + id + " doesn't exists on Database!");
+    	}
+    }
+    
+    public List<Customer> findAll() {
+    	return (List<Customer>) customerRep.findAll();
     }
     
     public void insertCustomer(Customer c) {
