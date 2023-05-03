@@ -41,11 +41,9 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     private E_CustomerType costumerType;
     
-    @Column(nullable = false)
     @OneToOne
     private Address legalAddress;
     
-    @Column(nullable = true)
     @OneToOne
     private Address operativeAddress;
     

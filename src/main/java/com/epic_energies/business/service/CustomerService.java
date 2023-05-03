@@ -20,10 +20,10 @@ public class CustomerService {
     @Autowired @Qualifier("FakeCustomer")
     private ObjectProvider<Customer> customerProvider;
 
-    @Autowired @Qualifier("FakeOperativeAdress")
+    @Autowired @Qualifier("FakeOpAddress")
     private ObjectProvider<Address> opAddressProvider;
 
-    @Autowired @Qualifier("FakeLegalAdress")
+    @Autowired @Qualifier("FakeLegAddress")
     private ObjectProvider<Address> legalAddressProvider;
 
     private Faker fake = Faker.instance(new Locale("it-IT"));

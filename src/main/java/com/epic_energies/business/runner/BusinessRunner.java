@@ -21,8 +21,6 @@ public class BusinessRunner implements ApplicationRunner {
 	System.out.println("Customer creato!");
 	
 	custService.persistFakeCustomer();
-	
-	// TODO Auto-generated method stub
 		
 		// IF TABLE PROVINCES ON DB HAS LESS THAN 1 ROW IN IT, METHOD WILL READ THE .CLS FILE AND POPULATE THE DB
 		if(proService.findAllProvinces().size() < 1) {
