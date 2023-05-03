@@ -22,29 +22,28 @@ public class AddressService {
 	@Qualifier("FakeOpAddress")
 	private ObjectProvider<Address> opAddressProvider;
 
-	@Autowired
-	AddressDAO AddressRepo;
+	@Autowired private AddressDAO AddressRepo;
 
 	public String persistAddress(Address a) {
 		AddressRepo.save(a);
-		return "Address salvato correttamente.";
+		return "Address correctly persisted on Database!";
 	}
 
 	public String updateAddress(Address a) {
 		if (AddressRepo.existsById(a.getId())) {
 			AddressRepo.save(a);
-			return "Address salvato correttamente.";
+			return "Address correctly updated on Database!";
 		} else {
-			return "Address non trovato!";
+			throw new EntityNotFoundException("Address with ID --> " + a.getId() + " doesn't exists on Database");
 		}
 	}
 
 	public String deleteAddress(Address a) {
 		if (AddressRepo.existsById(a.getId())) {
 			AddressRepo.delete(a);
-			return "Address eliminato correttamente.";
+			return "Address correctly deleted from Database!";
 		} else {
-			return "Address non trovato!";
+			throw new EntityNotFoundException("Address with ID --> " + a.getId() + " doesn't exists on Database");
 		}
 	}
 
@@ -52,9 +51,9 @@ public class AddressService {
 		if (AddressRepo.existsById(id)) {
 			AddressRepo.deleteById(id);
 			;
-			return "Address eliminato correttamente.";
+			return "Address correctly deleted from Database!";
 		} else {
-			return "Address non trovato!";
+			throw new EntityNotFoundException("Address with ID --> " + id + " doesn't exists on Database");
 		}
 	}
 
@@ -62,7 +61,7 @@ public class AddressService {
 		if (AddressRepo.existsById(id)) {
 			return AddressRepo.findById(id).get();
 		} else {
-			throw new EntityNotFoundException("Address non trovato!");
+			throw new EntityNotFoundException("Address with ID --> " + id + " doesn't exists on Database");
 		}
 
 	}
