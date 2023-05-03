@@ -5,13 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.epic_energies.business.model.Address;
+import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.service.AddressService;
 
 @RestController
@@ -34,4 +37,20 @@ public class AddressController {
 	public ResponseEntity<?> addNewAddress(@RequestBody Address a) {
 		return new ResponseEntity<String>(addService.persistAddress(a), HttpStatus.CREATED);
 	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> updateAddress(@RequestBody Address a) {
+		return new ResponseEntity<String>(addService.updateAddress(a), HttpStatus.OK);
+	}
+	
+	@DeleteMapping
+	public ResponseEntity<?> deleteAddress(@RequestBody Address a) {
+		return new ResponseEntity<String>(addService.deleteAddress(a), HttpStatus.OK);
+	}
+	
+	@DeleteMapping("{id}")
+	public ResponseEntity<?> deleteAddress(@PathVariable Long id) {
+		return new ResponseEntity<String>(addService.deleteAddress(id), HttpStatus.OK);
+	}
+	
 }
