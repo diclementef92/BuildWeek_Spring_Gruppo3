@@ -29,10 +29,12 @@ public class BusinessRunner implements ApplicationRunner {
 
 	for (int i = 0; i < 10; i++) {
 	    custService.persistFakeCustomer();
-
 	}
 
-	// TODO Auto-generated method stub
+	System.out.println("Fattura creato!");
+	for (int i = 0; i < 10; i++) {
+	    invoiceService.createFakeInvoice();
+	}
 
 	// IF TABLE PROVINCES ON DB HAS LESS THAN 1 ROW IN IT, METHOD WILL READ THE .CLS
 	// FILE AND POPULATE THE DB
@@ -46,8 +48,6 @@ public class BusinessRunner implements ApplicationRunner {
 	    munService.importAllMunicipalities();
 	}
 
-	System.out.println("Fattura creato!");
-	invoiceService.createFakeInvoice();
     }
 
 }

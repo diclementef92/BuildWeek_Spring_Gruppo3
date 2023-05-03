@@ -23,6 +23,8 @@ public class CustomerService {
     private CustomerDAO customerRep;
     @Autowired
     private AddressDAO AddressRep;
+    @Autowired
+    private AddressService addressService;
 
     @Autowired
     @Qualifier("FakeCustomer")
@@ -41,13 +43,14 @@ public class CustomerService {
     public void persistFakeCustomer() {
 	Customer c = customerProvider.getObject();
 	Address lAddress = legalAddressProvider.getObject();
-	AddressRep.save(lAddress);
+	addressService.createFakeAddress(lAddress);
 	c.setLegalAddress(lAddress);
 	if (fake.number().numberBetween(0, 10) > 7) {
 	    Address opAddress = opAddressProvider.getObject();
-	    AddressRep.save(opAddress);
+	    addressService.createFakeAddress(opAddress);
 	    c.setOperativeAddress(opAddress);
 	}
+
 	customerRep.save(c);
     }
 
