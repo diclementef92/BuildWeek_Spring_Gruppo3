@@ -3,18 +3,15 @@ package com.epic_energies.business.service;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
-
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
 import com.epic_energies.business.model.Address;
 import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.repository.AddressDAO;
 import com.epic_energies.business.repository.CustomerDAO;
 import com.github.javafaker.Faker;
-
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
@@ -54,17 +51,6 @@ public class CustomerService {
 	customerRep.save(c);
     }
 
-    public void insertCustomer(Customer c) {
-	customerRep.save(c);
-    }
-
-    public String updateCustomer(Customer c) {
-	if (customerRep.existsById(c.getId())) {
-
-	}
-	return "";
-    }
-
     public Optional<List<Customer>> getAllCustomersOrderByBusinessName() {
 	return customerRep.getAllCustomersOrderByBusinessName();
     }
@@ -81,18 +67,6 @@ public class CustomerService {
 	return customerRep.getAllCustomersOrderByLastContactData();
     }
 
-    public Customer findCustomerById(Long id) {
-	if (customerRep.existsById(id)) {
-	    return customerRep.findById(id).get();
-	} else {
-	    throw new EntityNotFoundException("Customer with ID --> " + id + " doesn't exists on Database!");
-	}
-    }
-
-    public List<Customer> findAll() {
-	return (List<Customer>) customerRep.findAll();
-    }
-
 	public Optional<List<Customer>> findAllByBusinessNameLike(String businessName) {
 		return customerRep.findAllByBusinessNameLike(businessName);
 	}
@@ -101,4 +75,47 @@ public class CustomerService {
 		return customerRep.findAllByContactNameLike(contactName);
 	}
 
+    public String persistCustomer(Customer c) {
+    	customerRep.save(c);
+    	return "Customer correctly persisted on Database!";
+    }
+    
+    public String updateCustomer(Customer c) {
+    	if (customerRep.existsById(c.getId())) {
+    		customerRep.save(c);
+    		return "Customer correctly updated on Database!";
+    	} else {
+    		throw new EntityNotFoundException("Customer with ID --> " + c.getId() + " doesn't exists on Database!");
+    	}
+    }
+    
+    public String deleteCustomer(Customer c) {
+    	if (customerRep.existsById(c.getId())) {
+    		customerRep.delete(c);
+    		return "Customer correctly deleted from Database!";
+    	} else {
+    		throw new EntityNotFoundException("Customer with ID --> " + c.getId() + " doesn't exists on Database!");
+    	}
+    }
+
+    public String deleteCustomer(Long id) {
+    	if (customerRep.existsById(id)) {
+    		customerRep.deleteById(id);
+    		return "Customer correctly deleted from Database!";
+    	} else {
+    		throw new EntityNotFoundException("Customer with ID --> " + id + " doesn't exists on Database!");
+    	}
+    }
+    
+    public Customer findCustomerById(Long id) {
+    	if (customerRep.existsById(id)) {
+    		return customerRep.findById(id).get();
+    	} else {
+    		throw new EntityNotFoundException("Customer with ID --> " + id + " doesn't exists on Database!");
+    	}
+    }
+    
+    public List<Customer> findAll() {
+    	return (List<Customer>) customerRep.findAll();
+    }
 }
