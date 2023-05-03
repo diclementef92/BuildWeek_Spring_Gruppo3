@@ -20,7 +20,10 @@ public class BusinessRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 	System.out.println("Customer creato!");
 	
-	custService.persistFakeCustomer();
+	for (int i = 0; i < 10; i++) {
+		custService.persistFakeCustomer();
+
+	}
 	
 	// TODO Auto-generated method stub
 		
