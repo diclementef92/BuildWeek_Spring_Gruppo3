@@ -10,13 +10,13 @@ import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.model.E_AddressType;
 import com.epic_energies.business.model.E_CustomerType;
 import com.epic_energies.business.model.Address;
-import com.epic_energies.business.repository.AdressDAO;
+import com.epic_energies.business.repository.AddressDAO;
 import com.github.javafaker.Faker;
 
 @Configuration
 public class BusinessConfig {
 
-    @Autowired AdressDAO opertiveAddressDao;
+    @Autowired AddressDAO opertiveAddressDao;
     private Faker fake = Faker.instance(new Locale("en-EN"));
     
     @Bean("FakeLegAddress")

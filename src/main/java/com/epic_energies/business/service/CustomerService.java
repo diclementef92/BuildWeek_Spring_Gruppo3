@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.model.Address;
 import com.epic_energies.business.repository.CustomerDAO;
-import com.epic_energies.business.repository.AdressDAO;
+import com.epic_energies.business.repository.AddressDAO;
 import com.github.javafaker.Faker;
 
 @Service
 public class CustomerService {
     @Autowired private CustomerDAO customerRep;
-    @Autowired private AdressDAO AddressRep;
+    @Autowired private AddressDAO AddressRep;
 
     @Autowired @Qualifier("FakeCustomer")
     private ObjectProvider<Customer> customerProvider;
