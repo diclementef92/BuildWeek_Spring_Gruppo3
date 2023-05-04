@@ -1,6 +1,8 @@
 package com.epic_energies.business.controller;
 
 import org.springframework.data.domain.Pageable;
+
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -37,6 +39,16 @@ public class CustomerController {
 	@GetMapping("/paged")
 	public ResponseEntity<?> findAllCustomersPaged(Pageable pageable) {
 		return new ResponseEntity<Page<Customer>>(cusService.findAll(pageable), HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/paged/by-name-like/{name}")
+	public ResponseEntity<?> findAllCustomersByNameLikePaged(@PathVariable String name, Pageable pageable) {
+		return new ResponseEntity<Page<Customer>>(cusService.findAllByBusinessNameLike(name, pageable), HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/paged/income/{amount1}-{amount2}")
+	public ResponseEntity<?> findCustomersByIncomeRangePaged(@PathVariable BigDecimal amount1, @PathVariable BigDecimal amount2, Pageable pageable) {
+		return new ResponseEntity<Page<Customer>>(cusService.findCustomersByIncomeRange(amount1, amount2, pageable), HttpStatus.FOUND);
 	}
 
 	@PostMapping

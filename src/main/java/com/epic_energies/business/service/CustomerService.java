@@ -1,6 +1,8 @@
 package com.epic_energies.business.service;
 
 import org.springframework.data.domain.Pageable;
+
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -123,5 +125,13 @@ public class CustomerService {
     
     public Page<Customer> findAll(Pageable pageable) {
     	return (Page<Customer>) customerRep.findAll(pageable);
+    }
+    
+    public Page<Customer> findAllByBusinessNameLike(String name, Pageable pageable) {
+    	return (Page<Customer>) customerRep.findAllByBusinessNameLike(name, pageable);
+    }
+    
+    public Page<Customer> findCustomersByIncomeRange(BigDecimal amount1, BigDecimal amount2, Pageable pageable) {
+    	return (Page<Customer>) customerRep.findCustomersByIncomeRange(amount1, amount2, pageable);
     }
 }

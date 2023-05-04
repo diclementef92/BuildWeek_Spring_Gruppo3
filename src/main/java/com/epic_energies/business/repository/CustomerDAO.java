@@ -1,6 +1,8 @@
 package com.epic_energies.business.repository;
 
 import org.springframework.data.domain.Pageable;
+
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -43,5 +45,13 @@ public interface CustomerDAO extends CrudRepository<Customer, Long>, PagingAndSo
 	// PAGEABLE QUERIES
 	Page<Customer> findAll(Pageable pageable);
 	
+	@Query("SELECT c FROM Customer c WHERE LOWER(c.businessName) LIKE LOWER(CONCAT('%', :name, '%'))")
+	Page<Customer> findAllByBusinessNameLike(@Param("name")String name, Pageable pageable);
+	
+	@Query("SELECT c FROM Customer c WHERE c.annualIncome BETWEEN :amount1 AND :amount2")
+	Page<Customer> findCustomersByIncomeRange(
+			@Param("amount1") BigDecimal amount1, 
+			@Param("amount1") BigDecimal amount2, 
+			Pageable pageable);
 	
 }
