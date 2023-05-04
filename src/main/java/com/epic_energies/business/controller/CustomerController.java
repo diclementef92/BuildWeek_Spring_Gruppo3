@@ -1,8 +1,9 @@
 package com.epic_energies.business.controller;
 
+import java.awt.print.Pageable;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,6 +31,11 @@ public class CustomerController {
 	@GetMapping
 	public ResponseEntity<?> findAllCustomer() {
 		return new ResponseEntity<List<Customer>>(cusService.findAll(), HttpStatus.OK);
+	}
+	
+	@GetMapping 
+	public ResponseEntity<?> findAllCustomersPaged(Pageable pageable) {
+		return new ResponseEntity<Page<Customer>>(cusService.findAllCustomersPaged(pageable), HttpStatus.FOUND);
 	}
 	
 	// QUI I VARI GETTERS COMPLESSI E PAGEABLE

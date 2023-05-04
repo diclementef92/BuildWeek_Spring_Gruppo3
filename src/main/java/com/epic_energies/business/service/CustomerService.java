@@ -1,11 +1,13 @@
 package com.epic_energies.business.service;
 
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import com.epic_energies.business.model.Address;
 import com.epic_energies.business.model.Customer;
@@ -117,5 +119,9 @@ public class CustomerService {
     
     public List<Customer> findAll() {
     	return (List<Customer>) customerRep.findAll();
+    }
+    
+    public Page<Customer> findAllCustomersPaged(Pageable pageable) {
+    	return (Page<Customer>) customerRep.findAllCustomersPaged(pageable);
     }
 }
