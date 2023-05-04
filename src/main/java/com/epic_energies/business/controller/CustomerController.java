@@ -1,6 +1,6 @@
 package com.epic_energies.business.controller;
 
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,9 +33,14 @@ public class CustomerController {
 		return new ResponseEntity<List<Customer>>(cusService.findAll(), HttpStatus.OK);
 	}
 	
-	@GetMapping 
+	@GetMapping("/paged")
 	public ResponseEntity<?> findAllCustomersPaged(Pageable pageable) {
-		return new ResponseEntity<Page<Customer>>(cusService.findAllCustomersPaged(pageable), HttpStatus.FOUND);
+		return new ResponseEntity<Page<Customer>>(cusService.findAll(pageable), HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/paged/{name}")
+	public ResponseEntity<?> findAllCustomersPagedByBusinessName(@PathVariable String businessName, Pageable pageable) {
+		return new ResponseEntity<Page<Customer>>(cusService.findAllByBusinessName(businessName, pageable), HttpStatus.FOUND);
 	}
 	
 	// QUI I VARI GETTERS COMPLESSI E PAGEABLE

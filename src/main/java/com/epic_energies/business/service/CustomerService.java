@@ -1,6 +1,6 @@
 package com.epic_energies.business.service;
 
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -121,7 +121,11 @@ public class CustomerService {
     	return (List<Customer>) customerRep.findAll();
     }
     
-    public Page<Customer> findAllCustomersPaged(Pageable pageable) {
-    	return (Page<Customer>) customerRep.findAllCustomersPaged(pageable);
+    public Page<Customer> findAll(Pageable pageable) {
+    	return (Page<Customer>) customerRep.findAll(pageable);
+    }
+
+    public Page<Customer> findAllByBusinessName(String businessName, Pageable pageable) {
+    	return (Page<Customer>) customerRep.findAllByBusinessName(businessName, pageable);
     }
 }

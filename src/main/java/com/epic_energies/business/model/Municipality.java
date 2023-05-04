@@ -43,7 +43,7 @@ public class Municipality {
 	private String name;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("municipalities")
+	@JsonIgnoreProperties({"municipalities", "name", "county"})
 	private Province province;
 	
 		

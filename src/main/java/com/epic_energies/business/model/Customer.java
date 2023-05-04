@@ -3,6 +3,8 @@ package com.epic_energies.business.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -51,6 +53,7 @@ public class Customer {
     private Address operativeAddress;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({"year", "number", "customer"})
     private List<Invoice> list_invoices;
 
 }

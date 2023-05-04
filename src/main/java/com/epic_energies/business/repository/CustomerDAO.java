@@ -1,9 +1,8 @@
 package com.epic_energies.business.repository;
 
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -41,6 +40,8 @@ public interface CustomerDAO extends CrudRepository<Customer, Long>, PagingAndSo
 	@Query("SELECT c FROM Customer c ORDER BY c.lastContactData DESC")
 	Optional<List<Customer>> getAllCustomersOrderByLastContactData();
 
-	Page<Customer> findAllCustomersPaged(Pageable pageable);
+	// PAGEABLE QUERIES
+	Page<Customer> findAll(Pageable pageable);
+	
 	
 }
