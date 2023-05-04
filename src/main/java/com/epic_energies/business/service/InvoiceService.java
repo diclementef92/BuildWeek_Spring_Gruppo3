@@ -98,6 +98,27 @@ public class InvoiceService {
 
     public List<Invoice> findAll() {
 	return (List<Invoice>) invoiceDao.findAll();
+	return fatturaDao.getAllInvoiceOrderByDate();
+    }
+
+    public List<Invoice> findAll() {
+	return (List<Invoice>) fatturaDao.findAll();
+    }
+
+    public Optional<List<Invoice>> findYear() {
+	return fatturaDao.findByYear();
+    }
+
+    public List<Invoice> findDate(Date d) {
+	return fatturaDao.findByDate(d);
+    }
+
+    public Optional<List<Invoice>> findAmount() {
+	return fatturaDao.findByAmount();
+    }
+
+    public List<Invoice> findByDateBetween(Date d1, Date d2) {
+	return fatturaDao.findByDateBetween(d1, d2);
     }
 
     public Page<Invoice> findAll(Pageable pageable) {
