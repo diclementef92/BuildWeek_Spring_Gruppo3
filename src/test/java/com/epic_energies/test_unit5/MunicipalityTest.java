@@ -1,48 +1,53 @@
-package com.spring_security_project;
+package com.epic_energies.test_unit5;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class AddressServiceTest {
+class MunicipalityTest {
 
 	@Test
-	void testCreateFakeAddress() {
+	void testBuilder() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testPersistAddress() {
+	void testMunicipality() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testUpdateAddress() {
+	void testMunicipalityLongStringProvince() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testDeleteAddressAddress() {
+	void testGetId() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testDeleteAddressLong() {
+	void testGetName() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testFindAddressById() {
+	void testGetProvince() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testFindAllAddress() {
+	void testSetId() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testFindAll() {
+	void testSetName() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetProvince() {
 		fail("Not yet implemented");
 	}
 

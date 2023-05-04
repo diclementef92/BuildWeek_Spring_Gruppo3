@@ -1,73 +1,73 @@
-package com.spring_security_project;
+package com.epic_energies.test_unit5;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class ProvinceTest {
+class InvoiceControllerTest {
 
 	@Test
-	void testBuilder() {
+	void testFindInvoiceById() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testProvince() {
+	void testFindAllInvoices() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testProvinceLongStringStringStringListOfMunicipality() {
+	void testFindAllInvoicesPaged() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetId() {
+	void testFindAllInvoicesPagedByCustomer() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetAbbr() {
+	void testFindAllInvoicesPagedByStatus() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetName() {
+	void testFindAllInvoicesPagedByDate() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetCounty() {
+	void testFindAllInvoicesPagedByYear() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetMunicipalities() {
+	void testFindAllInvoicesPagedByAmountRange() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetId() {
+	void testAddNewInvoice() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetAbbr() {
+	void testUpdateInvoice() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetName() {
+	void testDeleteInvoiceInvoice() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetCounty() {
+	void testDeleteInvoiceLong() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetMunicipalities() {
+	void testGetfindByDateBetween() {
 		fail("Not yet implemented");
 	}
 

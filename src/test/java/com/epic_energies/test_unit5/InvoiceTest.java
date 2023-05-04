@@ -1,13 +1,18 @@
-package com.spring_security_project;
+package com.epic_energies.test_unit5;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class AddressTest {
+class InvoiceTest {
 
 	@Test
 	void testHashCode() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testToString() {
 		fail("Not yet implemented");
 	}
 
@@ -17,47 +22,37 @@ class AddressTest {
 	}
 
 	@Test
-	void testAddress() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testAddressLongStringIntegerStringIntegerE_AddressTypeMunicipality() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testGetId() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetStreetName() {
+	void testGetYear() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetStreetNumber() {
+	void testGetDate() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetPlace() {
+	void testGetAmount() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetPostCode() {
+	void testGetNumber() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetAddressType() {
+	void testGetInvoiceStatus() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetMunicipality() {
+	void testGetCustomer() {
 		fail("Not yet implemented");
 	}
 
@@ -67,32 +62,32 @@ class AddressTest {
 	}
 
 	@Test
-	void testSetStreetName() {
+	void testSetYear() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetStreetNumber() {
+	void testSetDate() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetPlace() {
+	void testSetAmount() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetPostCode() {
+	void testSetNumber() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetAddressType() {
+	void testSetInvoiceStatus() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testSetMunicipality() {
+	void testSetCustomer() {
 		fail("Not yet implemented");
 	}
 
@@ -107,7 +102,12 @@ class AddressTest {
 	}
 
 	@Test
-	void testToString() {
+	void testInvoice() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testInvoiceLongIntegerLocalDateBigDecimalIntegerInvoiceStatusCustomer() {
 		fail("Not yet implemented");
 	}
 

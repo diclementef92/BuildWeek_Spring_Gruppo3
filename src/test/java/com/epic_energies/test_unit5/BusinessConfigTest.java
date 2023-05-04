@@ -1,38 +1,33 @@
-package com.spring_security_project;
+package com.epic_energies.test_unit5;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class ProvinceServiceTest {
+class BusinessConfigTest {
 
 	@Test
-	void testImportProvinces() {
+	void testFakeLegAddress() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testPersistProvince() {
+	void testFakeOpAddress() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testUpdateProvince() {
+	void testFakeCustomer() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testDeleteProvinceLong() {
+	void testGetRandomIncome() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testDeleteProvinceProvince() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testFindAllProvinces() {
+	void testFakeInvoice() {
 		fail("Not yet implemented");
 	}
 

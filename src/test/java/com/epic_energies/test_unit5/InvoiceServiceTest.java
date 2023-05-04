@@ -1,10 +1,11 @@
-package com.spring_security_project;
+
+package com.epic_energies.test_unit5;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class InvoiceService {
+class InvoiceServiceTest {
 
 	@Test
 	void testPersistInvoice() {
