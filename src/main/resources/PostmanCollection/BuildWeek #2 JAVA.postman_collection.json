@@ -32,7 +32,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "2"
+											"value": "1"
 										}
 									]
 								}
@@ -356,6 +356,167 @@
 										{
 											"key": "id",
 											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pageable GETTERS",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "Basic CRUD",
+					"item": [
+						{
+							"name": "Find invoice by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoices",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new Invoice",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Update existing invoice",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"year\": 2019,\r\n    \"date\": \"1993-10-21T19:13:38.701+00:00\",\r\n    \"amount\": 779.04,\r\n    \"number\": 9,\r\n    \"invoice_status\": \"RECEIVED\",\r\n    \"customer\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove invoice by Entity",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"year\": 2019,\r\n    \"date\": \"1993-10-21T19:13:38.701+00:00\",\r\n    \"amount\": 779.04,\r\n    \"number\": 9,\r\n    \"invoice_status\": \"RECEIVED\",\r\n    \"customer\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove invoice by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
 										}
 									]
 								}
