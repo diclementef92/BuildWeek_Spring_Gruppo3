@@ -59,8 +59,16 @@ public class InvoiceService {
 
     }
 
-    public Optional<List<Invoice>> getAllInvoicesOrderByLastData() {
+    public Optional<List<Invoice>> getAllinvoiceInvoicesOrderByLastData() {
 	return fatturaDao.findByDate();
+    }
+
+    public Optional<List<Invoice>> getAllinvoiceInvoicesOrderByLastYear() {
+	return fatturaDao.findByYear();
+    }
+
+    public Optional<List<Invoice>> findInvoiceByAmount() {
+	return fatturaDao.findByAmount();
     }
 
     public List<Invoice> findAll() {
