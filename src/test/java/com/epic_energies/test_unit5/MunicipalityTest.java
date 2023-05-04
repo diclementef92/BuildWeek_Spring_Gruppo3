@@ -4,51 +4,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.epic_energies.business.model.Municipality;
+
 class MunicipalityTest {
 
+	Municipality c = new Municipality();
+	
 	@Test
-	void testBuilder() {
-		fail("Not yet implemented");
+	void MunicipalityId() {
+		c.setId(23l);
+		assertEquals(23l, c.getId());
 	}
 
 	@Test
-	void testMunicipality() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testMunicipalityLongStringProvince() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetProvince() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetProvince() {
-		fail("Not yet implemented");
+	void MunicipalityGetName() {
+		c.setName("Palermo");
+		assertEquals("Palermo", c.getName());
 	}
 
 }

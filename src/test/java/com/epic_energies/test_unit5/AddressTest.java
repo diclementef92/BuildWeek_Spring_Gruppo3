@@ -4,111 +4,47 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.epic_energies.business.model.Address;
+import com.epic_energies.business.model.E_AddressType;
+
 class AddressTest {
 	
+	Address c = new Address();
+	
 	@Test
-	void testHashCode() {
-		fail("Not yet implemented");
+	void testStreetName() {
+		c.setStreetName("Via Prati");
+		assertEquals("Via Prati", c.getStreetName());
 	}
-
+	
 	@Test
-	void testBuilder() {
-		fail("Not yet implemented");
+	void testStreetNumber() {
+		c.setStreetNumber(23);
+		assertEquals(23, c.getStreetNumber());
 	}
-
+	
 	@Test
-	void testAddress() {
-		fail("Not yet implemented");
+	void testPlace() {
+		c.setPlace("Genova");
+		assertEquals("Genova", c.getPlace());
 	}
-
-	@Test
-	void testAddressLongStringIntegerStringIntegerE_AddressTypeMunicipality() {
-		fail("Not yet implemented");
-	}
-
+	
 	@Test
 	void testGetId() {
-		fail("Not yet implemented");
+		c.setId(4l);
+		assertEquals(4l, c.getId());
 	}
 
 	@Test
-	void testGetStreetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetStreetNumber() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetPlace() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetPostCode() {
-		fail("Not yet implemented");
+	void testpostCode() {
+		c.setPostCode(23553453);
+		assertEquals(23553453, c.getPostCode());
 	}
 
 	@Test
 	void testGetAddressType() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetMunicipality() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetStreetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetStreetNumber() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetPlace() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetPostCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetAddressType() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetMunicipality() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testEqualsObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testCanEqual() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testToString() {
-		fail("Not yet implemented");
+		c.setAddressType(E_AddressType.LEGAL_ADDRESS);
+		assertEquals(E_AddressType.LEGAL_ADDRESS, c.getAddressType());
 	}
 
 }

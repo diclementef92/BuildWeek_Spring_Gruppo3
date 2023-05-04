@@ -4,111 +4,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.epic_energies.business.model.Address;
+import com.epic_energies.business.model.Invoice;
+
 class InvoiceTest {
 
+	Invoice c = new Invoice();
+	
 	@Test
-	void testHashCode() {
-		fail("Not yet implemented");
+	void InvoiceId() {
+		c.setId(23l);
+		assertEquals(23l, c.getId());
 	}
-
+	
 	@Test
-	void testToString() {
-		fail("Not yet implemented");
+	void InvoiceYear() {
+		c.setYear(1985);
+		assertEquals(1985, c.getYear());
 	}
-
-	@Test
-	void testBuilder() {
-		fail("Not yet implemented");
-	}
-
+	
 	@Test
 	void testGetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetYear() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetDate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetAmount() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetNumber() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetInvoiceStatus() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetCustomer() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetYear() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetDate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetAmount() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetNumber() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetInvoiceStatus() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetCustomer() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testEqualsObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testCanEqual() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testInvoice() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testInvoiceLongIntegerLocalDateBigDecimalIntegerInvoiceStatusCustomer() {
-		fail("Not yet implemented");
+		c.setId(4l);
+		assertEquals(4l, c.getId());
 	}
 
 }

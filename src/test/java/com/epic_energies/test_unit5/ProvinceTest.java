@@ -4,71 +4,34 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.epic_energies.business.model.Province;
+
 class ProvinceTest {
 
+	Province c = new Province();
+	
 	@Test
-	void testBuilder() {
-		fail("Not yet implemented");
+	void ProvinceId() {
+		c.setId(23l);
+		assertEquals(23l, c.getId());
 	}
-
+	
 	@Test
-	void testProvince() {
-		fail("Not yet implemented");
+	void ProvinceAbbr() {
+		c.setAbbr("VR");
+		assertEquals("VR", c.getAbbr());
 	}
-
+	
 	@Test
-	void testProvinceLongStringStringStringListOfMunicipality() {
-		fail("Not yet implemented");
+	void ProvinceName() {
+		c.setName("Verona");
+		assertEquals("Verona", c.getName());
 	}
-
+	
 	@Test
-	void testGetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetAbbr() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetCounty() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetMunicipalities() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetId() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetAbbr() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetCounty() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetMunicipalities() {
-		fail("Not yet implemented");
+	void ProvinceCounty() {
+		c.setCounty("Bergamo");
+		assertEquals("Bergamo", c.getCounty());
 	}
 
 }
