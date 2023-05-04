@@ -2,7 +2,7 @@ package com.epic_energies.business.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -32,10 +32,18 @@ public class Invoice {
     private BigDecimal amount;
     private Integer number;
     @Enumerated(EnumType.STRING)
-    private InvoiceStatus invoice_status;
+    private InvoiceStatus invoiceStatus;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonIgnoreProperties({"email", "insertData", "lastContactData", "annualIncome", "pec", "legalAddress", "operativeAddress", "list_invoices"})
     private Customer customer;
 
+	@Override
+	public String toString() {
+		return "Invoice [id=" + id + ", year=" + year + ", date=" + date + ", amount=" + amount + ", number=" + number
+				+ ", invoice_status=" + invoiceStatus + ", customer ID=" + customer.getId() + "]";
+	}
+
+    
 }

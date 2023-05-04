@@ -25,6 +25,18 @@ public class BusinessRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+    // IF TABLE PROVINCES ON DB HAS LESS THAN 1 ROW IN IT, METHOD WILL READ THE .CLS
+   	// FILE AND POPULATE THE DB
+   	if (proService.findAllProvinces().size() < 1) {
+   	    proService.importProvinces();
+   	}
+
+   	// IF TABLE MUNICIPALITIES ON DB HAS LESS THAN 1 ROW IN IT, METHOD WILL READ THE
+   	// .CLS FILE AND POPULATE THE DB
+   	if (munService.findAllMunicipality().size() < 1) {
+   	    munService.importAllMunicipalities();
+  	}
+    	
 	System.out.println("Customer creato!");
 
 	for (int i = 0; i < 10; i++) {
@@ -36,17 +48,10 @@ public class BusinessRunner implements ApplicationRunner {
 	    invoiceService.createFakeInvoice();
 	}
 
-	// IF TABLE PROVINCES ON DB HAS LESS THAN 1 ROW IN IT, METHOD WILL READ THE .CLS
-	// FILE AND POPULATE THE DB
-	if (proService.findAllProvinces().size() < 1) {
-	    proService.importProvinces();
-	}
-
-	// IF TABLE MUNICIPALITIES ON DB HAS LESS THAN 1 ROW IN IT, METHOD WILL READ THE
-	// .CLS FILE AND POPULATE THE DB
-	if (munService.findAllMunicipality().size() < 1) {
-	    munService.importAllMunicipalities();
-	}
+	//  System.out.println(custService.getAllCustomersOrderByBusinessName().get());
+	//  System.out.println(custService.getAllCustomersOrderByAnnualIncome().get());
+	//  System.out.println(custService.getAllCustomersOrderByInsertData().get());
+	System.out.println(custService.getAllCustomersOrderByLastContactData().get());
 
     }
 

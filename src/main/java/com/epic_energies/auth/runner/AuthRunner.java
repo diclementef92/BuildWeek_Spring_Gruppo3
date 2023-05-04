@@ -32,6 +32,7 @@ public class AuthRunner implements ApplicationRunner {
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		
 		System.out.println("Run...");
 		//setRoleDefault();
 		
@@ -46,17 +47,11 @@ public class AuthRunner implements ApplicationRunner {
 		user.setRoleName(ERole.ROLE_USER);
 		roleRepository.save(user);
 		
-		Role moderator = new Role();
-		moderator.setRoleName(ERole.ROLE_MODERATOR);
-		roleRepository.save(moderator);
-		
 		adminRole = new HashSet<Role>();
 		adminRole.add(admin);
-		adminRole.add(moderator);
 		adminRole.add(user);
 		
 		moderatorRole = new HashSet<Role>();
-		moderatorRole.add(moderator);
 		moderatorRole.add(user);
 		
 		userRole = new HashSet<Role>();

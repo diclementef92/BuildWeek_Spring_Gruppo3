@@ -1,0 +1,927 @@
+{
+	"info": {
+		"_postman_id": "b62ee0f5-299e-43ce-a417-09e8fc9ca5e1",
+		"name": "BuildWeek #2 JAVA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25909383"
+	},
+	"item": [
+		{
+			"name": "JWT Authorization",
+			"item": [
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "Register USER-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"User\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.user\",\r\n    \"email\": \"tester.U@example.com\",\r\n    \"password\": \"pOtf8r$4Nb!\",\r\n    \"roles\": [\"ROLE_USER\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register ADMIN-perTesting",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 400ms\", function (){",
+											"    pm.expect(pm.response.responseTime).to.be.below(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"Admin\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.admin\",\r\n    \"email\": \"tester.A@example.com\",\r\n    \"password\": \"d9sfgG8sle?\",\r\n    \"roles\": [\"ROLE_ADMIN\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register USER & ADMIN-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"Hybrid\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.hybrid\",\r\n    \"email\": \"tester.H@example.com\",\r\n    \"password\": \"dsagt97kdf5?\",\r\n    \"roles\": [\"ROLE_USER\", \"ROLE_ADMIN\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Login USER-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.user\",\r\n    \"password\": \"pOtf8r$4Nb!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login ADMIN-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.admin\",\r\n    \"password\": \"d9sfgG8sle?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login USER & ADMIN-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.hybrid\",\r\n    \"password\": \"dsagt97kdf5?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Basic CRUD",
+					"item": [
+						{
+							"name": "Find customer by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new Customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"businessName\": \"Nome Azienda\",\r\n        \"vatNumber\": 12345678901,\r\n        \"email\": \"email@dell'azienda.com\",\r\n        \"insertData\": \"2023-01-01\",\r\n        \"lastContactData\": \"2023-01-02\",\r\n        \"annualIncome\": 1234567,\r\n        \"pec\": \"pec.dell'azienda@pec.it\",\r\n        \"phoneNumber\": 1234567890,\r\n        \"contactEmail\": \"email.delreferente@example.com\",\r\n        \"contactName\": \"Nome&Cognome referente\",\r\n        \"contactPhone\": 3494423293,\r\n        \"costumerType\": \"SAS\",\r\n        \"legalAddress\": {\r\n            \"id\": 1\r\n        },\r\n        \"operativeAddress\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update existing customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"id\": 1,\r\n        \"businessName\": \"Schowalter Group\",\r\n        \"vatNumber\": 10638184399,\r\n        \"email\": \"info_@Schowalter.com\",\r\n        \"insertData\": \"2023-05-26\",\r\n        \"lastContactData\": \"2023-05-21\",\r\n        \"annualIncome\": 502189,\r\n        \"pec\": \"Schowalter.Group@pec.it\",\r\n        \"phoneNumber\": 3490704460,\r\n        \"contactEmail\": \"D.Pfeffer@example.com\",\r\n        \"contactName\": \"Delmer Pfeffer\",\r\n        \"contactPhone\": 3494423293,\r\n        \"costumerType\": \"SAS\",\r\n        \"legalAddress\": {\r\n            \"id\": 1,\r\n            \"streetName\": \"80271 McKenzie Corner\",\r\n            \"streetNumber\": 3,\r\n            \"place\": \"Joleneton\",\r\n            \"postCode\": 67152,\r\n            \"addressType\": \"LEGAL_ADDRESS\"\r\n        },\r\n        \"operativeAddress\": null\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/customers/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove customer by entity",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"id\": 1,\r\n        \"businessName\": \"Schowalter Group\",\r\n        \"vatNumber\": 10638184399,\r\n        \"email\": \"info_@Schowalter.com\",\r\n        \"insertData\": \"2023-05-26\",\r\n        \"lastContactData\": \"2023-05-21\",\r\n        \"annualIncome\": 502189,\r\n        \"pec\": \"Schowalter.Group@pec.it\",\r\n        \"phoneNumber\": 3490704460,\r\n        \"contactEmail\": \"D.Pfeffer@example.com\",\r\n        \"contactName\": \"Delmer Pfeffer\",\r\n        \"contactPhone\": 3494423293,\r\n        \"costumerType\": \"SAS\",\r\n        \"legalAddress\": {\r\n            \"id\": 1,\r\n            \"streetName\": \"80271 McKenzie Corner\",\r\n            \"streetNumber\": 3,\r\n            \"place\": \"Joleneton\",\r\n            \"postCode\": 67152,\r\n            \"addressType\": \"LEGAL_ADDRESS\"\r\n        },\r\n        \"operativeAddress\": null\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove customer by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pageable GETTERS",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "Address Crud",
+			"item": [
+				{
+					"name": "Basic CRUD",
+					"item": [
+						{
+							"name": "Find address by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all addresses",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new address",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"streetName\": \"20135 Monsignor Pogliani\",\r\n    \"streetNumber\": 31,\r\n    \"place\": \"Marte\",\r\n    \"postCode\": 20135,\r\n    \"addressType\": \"LEGAL_ADDRESS\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/addresses",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update existing address",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"id\": 1,\r\n        \"streetName\": \"45678 Angolo dei babbi\",\r\n        \"streetNumber\": 45,\r\n        \"place\": \"Gubbio\",\r\n        \"postCode\": 45678,\r\n        \"addressType\": \"LEGAL_ADDRESS\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove address by entity",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"streetName\": \"80271 McKenzie Corner\",\r\n    \"streetNumber\": 3,\r\n    \"place\": \"Joleneton\",\r\n    \"postCode\": 67152,\r\n    \"addressType\": \"LEGAL_ADDRESS\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/addresses",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove address by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pageable GETTERS",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "Basic CRUD",
+					"item": [
+						{
+							"name": "Find invoice by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoices",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new Invoice",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Update existing invoice",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"year\": 2019,\r\n    \"date\": \"1993-10-21T19:13:38.701+00:00\",\r\n    \"amount\": 779.04,\r\n    \"number\": 9,\r\n    \"invoice_status\": \"RECEIVED\",\r\n    \"customer\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove invoice by Entity",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"year\": 2019,\r\n    \"date\": \"1993-10-21T19:13:38.701+00:00\",\r\n    \"amount\": 779.04,\r\n    \"number\": 9,\r\n    \"invoice_status\": \"RECEIVED\",\r\n    \"customer\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove invoice by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pageable GETTERS",
+					"item": []
+				}
+			]
+		}
+	]
+}

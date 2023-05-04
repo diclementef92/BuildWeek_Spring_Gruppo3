@@ -19,6 +19,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.epic_energies.auth.entity.ERole;
 import com.epic_energies.auth.security.JwtAuthenticationEntryPoint;
 import com.epic_energies.auth.security.JwtAuthenticationFilter;
 
@@ -56,7 +57,10 @@ public class SecurityConfig {
 
     	http.cors().and().csrf().disable()
         .authorizeHttpRequests((authorize) -> authorize
-        		.requestMatchers(HttpMethod.GET, "/api/**").permitAll().requestMatchers("/**").permitAll()
+        		.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+        		.requestMatchers(HttpMethod.POST, "/api/customers/**", "/api/invoices/**", "/api/addresses/**").hasRole("ADMIN")
+        		.requestMatchers(HttpMethod.PUT, "/api/customers/**", "/api/invoices/**", "/api/addresses/**").hasRole("ADMIN")
+        		.requestMatchers(HttpMethod.DELETE, "/api/customers/**", "/api/invoices/**", "/api/addresses/**").hasRole("ADMIN")
                 .requestMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception

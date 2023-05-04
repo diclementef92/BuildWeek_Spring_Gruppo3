@@ -7,6 +7,7 @@ import java.util.Scanner;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.epic_energies.business.service.MunicipalityService;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -42,6 +43,7 @@ public class Municipality {
 	private String name;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("municipalities")
 	private Province province;
 	
 		
