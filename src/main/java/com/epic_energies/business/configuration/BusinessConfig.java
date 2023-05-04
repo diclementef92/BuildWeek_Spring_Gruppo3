@@ -2,6 +2,7 @@ package com.epic_energies.business.configuration;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,8 +104,11 @@ public class BusinessConfig {
     public Invoice fakeInvoice() {
 	Invoice f = new Invoice();
 	Faker fake = Faker.instance(new Locale("en-EN"));
-	f.setYear(fake.number().numberBetween(2000, 2023));
-	f.setDate(fake.date().birthday());
+	Date from = new Date(100, 0, 1); // aggiunge 1900 all'anno
+	Date to = new Date();
+	Date date = fake.date().between(from, to);
+	f.setYear(date.getYear() + 1900);
+	f.setDate(LocalDate.of(date.getYear() + 1900, date.getMonth() + 1, date.getDate()));
 	f.setAmount(BigDecimal.valueOf(fake.number().randomDouble(2, 0, 1000)));
 	f.setNumber(fake.number().randomDigitNotZero());
 	int num = fake.number().numberBetween(1, 5);

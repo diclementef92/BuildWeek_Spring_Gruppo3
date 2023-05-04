@@ -1,7 +1,7 @@
 package com.epic_energies.business.repository;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,9 +29,11 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
     List<Invoice> findByInvoiceStatus(InvoiceStatus invoiceStatus);
 
     // filter per data precisa
-    List<Invoice> findByDate(Date date);
+	List<Invoice> findByDate(LocalDate date);
 
     // filter date in range
+	@Query("SELECT i FROM Invoice i WHERE i.date BETWEEN ?1 AND ?2")
+	List<Invoice> findByDateBetween(LocalDate date1, LocalDate date2);
 
     // filter per anno
     List<Invoice> findByYear(Integer year);
@@ -48,11 +50,11 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
 
     // ordine crescente degli importi fattura
     @Query("SELECT i FROM Invoice i ORDER BY i.amount ASC")
-    Optional<List<Invoice>> findByAmount();
+	List<Invoice> findByAmount();
 
     // ordine di data inserimento dalla più recente
     @Query("SELECT i FROM Invoice i ORDER BY i.date DESC")
-    Optional<List<Invoice>> findByDate();
+    Optional<List<Invoice>> getAllInvoiceOrderByDate();
 
     // ordine di inserimento descrescente della fattura per anno
     @Query("SELECT i FROM Invoice i ORDER BY i.year DESC")
@@ -65,7 +67,7 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
 
     Page<Invoice> findByInvoiceStatus(InvoiceStatus invoiceStatus, Pageable pageable);
 
-    Page<Invoice> findByDate(Date date, Pageable pageable);
+	Page<Invoice> findByDate(LocalDate date, Pageable pageable);
 
     Page<Invoice> findByYear(Integer year, Pageable pageable);
 

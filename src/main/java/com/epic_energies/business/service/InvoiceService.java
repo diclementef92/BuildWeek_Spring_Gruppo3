@@ -1,7 +1,7 @@
 package com.epic_energies.business.service;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -92,35 +92,48 @@ public class InvoiceService {
 	}
     }
 
-    public Optional<List<Invoice>> getAllInvoicesOrderByLastData() {
-	return invoiceDao.findByDate();
+	public Optional<List<Invoice>> getAllInvoicesOrderByData() {
+		return invoiceDao.getAllInvoiceOrderByDate();
     }
 
     public List<Invoice> findAll() {
-	return (List<Invoice>) invoiceDao.findAll();
+		return invoiceDao.findAll();
     }
 
+	public Optional<List<Invoice>> findByYear() {
+		return invoiceDao.findByYear();
+    }
+
+	public List<Invoice> findByAmount() {
+		return invoiceDao.findByAmount();
+    }
+
+	public List<Invoice> findByDateBetween(LocalDate d1, LocalDate d2) {
+		return invoiceDao.findByDateBetween(d1, d2);
+    }
+
+	// PAGABLE
     public Page<Invoice> findAll(Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findAll(pageable);
+		return invoiceDao.findAll(pageable);
     }
 
     public Page<Invoice> findAllByCustomer(Customer c, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByCustomer(c, pageable);
+		return invoiceDao.findByCustomer(c, pageable);
     }
 
     public Page<Invoice> findAllByStatus(InvoiceStatus status, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByInvoiceStatus(status, pageable);
+		return invoiceDao.findByInvoiceStatus(status, pageable);
     }
 
-    public Page<Invoice> findAllByDate(Date date, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByDate(date, pageable);
+	public Page<Invoice> findAllByDate(LocalDate date, Pageable pageable) {
+		return invoiceDao.findByDate(date, pageable);
     }
 
     public Page<Invoice> findAllByYear(Integer year, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByYear(year, pageable);
+		return invoiceDao.findByYear(year, pageable);
     }
 
     public Page<Invoice> findAllByAmountRange(BigDecimal amount1, BigDecimal amount2, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByAmountBetween(amount1, amount2, pageable);
+		return invoiceDao.findByAmountBetween(amount1, amount2, pageable);
     }
 }

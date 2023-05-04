@@ -1,8 +1,10 @@
 package com.epic_energies.business.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -28,7 +30,7 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer year;
-    private Date date;
+	private LocalDate date;
     private BigDecimal amount;
     private Integer number;
     @Enumerated(EnumType.STRING)

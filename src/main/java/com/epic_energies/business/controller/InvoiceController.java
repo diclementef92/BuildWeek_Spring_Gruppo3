@@ -1,7 +1,7 @@
 package com.epic_energies.business.controller;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -55,7 +55,7 @@ public class InvoiceController {
     }
 
     @GetMapping("/paged/bydate")
-    public ResponseEntity<?> findAllInvoicesPagedByDate(@RequestBody Date date, Pageable pageable) {
+	public ResponseEntity<?> findAllInvoicesPagedByDate(@RequestBody LocalDate date, Pageable pageable) {
 	return new ResponseEntity<Page<Invoice>>(invService.findAllByDate(date, pageable), HttpStatus.FOUND);
     }
 
@@ -89,6 +89,11 @@ public class InvoiceController {
     @DeleteMapping("{id}")
     public ResponseEntity<?> deleteInvoice(@PathVariable Long id) {
 	return new ResponseEntity<>(invService.deleteInvoice(id), HttpStatus.OK);
+    }
+
+	@GetMapping("/dateBetween/{d1}&{d2}")
+	public ResponseEntity<?> getfindByDateBetween(@PathVariable LocalDate d1, @PathVariable LocalDate d2) {
+	return new ResponseEntity<>(invService.findByDateBetween(d1, d2), HttpStatus.FOUND);
     }
 
 }
