@@ -58,6 +58,9 @@ public class BusinessConfig {
 	int randomType = fake.number().numberBetween(0, 3);
 	E_CustomerType companyType = getRandomCustomeType(randomType);
 	Integer annualIncome = getRandomIncome(companyType);
+	Date from = new Date(100, 0, 1); // aggiunge 1900 all'anno
+	Date to = new Date();
+	Date insertDate = fake.date().between(from, to);
 	String pec;
 	if (companyArray.length > 1) {
 	    pec = companyArray[0] + "." + companyArray[1] + "@pec.it";
@@ -68,8 +71,8 @@ public class BusinessConfig {
 	return Customer.builder().businessName(companyName).email(companyEmail).pec(pec)
 		.vatNumber(fake.number().numberBetween(10000000001l, 100000000000l))
 		.phoneNumber(3490000000l + fake.number().numberBetween(1l, 10000000l))
-		.insertData(LocalDate.of(2023, 5, (int) Math.floor(Math.random() * 30 + 1)))
-		.lastContactData(LocalDate.of(2023, 5, (int) Math.floor(Math.random() * 30 + 1)))
+		.insertData(LocalDate.of(insertDate.getYear() + 1900, insertDate.getMonth() + 1, insertDate.getDate()))
+		.lastContactData(LocalDate.of(insertDate.getYear() + 1900 + fake.number().numberBetween(1, 5), insertDate.getMonth() + 1, insertDate.getDate()))
 		.contactName(fName + " " + lName).contactEmail(contactEmail)
 		.contactPhone(3490000000l + fake.number().numberBetween(1l, 10000000l)).costumerType(companyType)
 		.annualIncome(annualIncome).build();
