@@ -1,7 +1,11 @@
 package com.epic_energies.business.controller;
 
 import java.awt.print.Pageable;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -40,6 +44,60 @@ public class CustomerController {
 	
 	// QUI I VARI GETTERS COMPLESSI E PAGEABLE
 	
+	@GetMapping
+	public ResponseEntity<?> findAllByBusinessNameLike(@RequestBody String businessName) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByBusinessNameLike(businessName), HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping
+	public ResponseEntity<?> findAllByContactNameLike(@RequestBody String contactName) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByContactNameLike(contactName),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping
+	public ResponseEntity<?> getAllCustomersOrderByLastContactData() {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByLastContactData(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping
+	public ResponseEntity<?> getAllCustomersOrderByBusinessName() {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByBusinessName(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping
+	public ResponseEntity<?> getAllCustomersOrderByAnnualIncome() {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByAnnualIncome(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping
+	public ResponseEntity<?> getAllCustomersOrderByInsertData() {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByInsertData(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@PostMapping
 	public ResponseEntity<?> addNewCustomer(@RequestBody Customer c) {
 		return new ResponseEntity<String>(cusService.persistCustomer(c), HttpStatus.CREATED);
@@ -59,6 +117,5 @@ public class CustomerController {
 	public ResponseEntity<?> deleteCustomer(@PathVariable Long id) {
 		return new ResponseEntity<String>(cusService.deleteCustomer(id), HttpStatus.OK);
 	}
-	
-	
+		
 }
