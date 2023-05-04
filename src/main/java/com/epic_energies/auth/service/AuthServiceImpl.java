@@ -73,7 +73,8 @@ public class AuthServiceImpl implements AuthService {
         }
 
         User user = new User();
-        user.setName(registerDto.getName());
+        user.setFirstname(registerDto.getFirstname());
+        user.setLastname(registerDto.getLastname());
         user.setUsername(registerDto.getUsername());
         user.setEmail(registerDto.getEmail());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
@@ -101,7 +102,6 @@ public class AuthServiceImpl implements AuthService {
     
     public ERole getRole(String role) {
     	if(role.equals("ROLE_ADMIN")) return ERole.ROLE_ADMIN;
-    	else if(role.equals("ROLE_MODERATOR")) return ERole.ROLE_MODERATOR;
     	else return ERole.ROLE_USER;
     }
     

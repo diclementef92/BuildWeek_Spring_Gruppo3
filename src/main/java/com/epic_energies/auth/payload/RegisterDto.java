@@ -14,7 +14,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegisterDto {
-    private String name;
+    private String firstname;
+    private String lastname;
     private String username;
     private String email;
     private String password;
