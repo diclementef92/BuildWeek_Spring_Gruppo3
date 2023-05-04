@@ -54,6 +54,60 @@ public class CustomerController {
 		return new ResponseEntity<Page<Customer>>(cusService.findCustomersByIncomeRange(amount1, amount2, pageable), HttpStatus.FOUND);
 	}
 
+	@GetMapping("/findAllByBusinessNameLike")
+	public ResponseEntity<?> findAllByBusinessNameLike(@RequestBody String businessName) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByBusinessNameLike(businessName), HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/findAllByContactNameLike")
+	public ResponseEntity<?> findAllByContactNameLike(@RequestBody String contactName) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByContactNameLike(contactName),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/getAllCustomersOrderByLastContactData")
+	public ResponseEntity<?> getAllCustomersOrderByLastContactData() {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByLastContactData(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/getAllCustomersOrderByBusinessName")
+	public ResponseEntity<?> getAllCustomersOrderByBusinessName() {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByBusinessName(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/getAllCustomersOrderByAnnualIncome")
+	public ResponseEntity<?> getAllCustomersOrderByAnnualIncome() {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByAnnualIncome(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/getAllCustomersOrderByInsertData")
+	public ResponseEntity<?> getAllCustomersOrderByInsertData() {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByInsertData(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@PostMapping
 	public ResponseEntity<?> addNewCustomer(@RequestBody Customer c) {
 		return new ResponseEntity<String>(cusService.persistCustomer(c), HttpStatus.CREATED);
@@ -73,5 +127,4 @@ public class CustomerController {
 	public ResponseEntity<?> deleteCustomer(@PathVariable Long id) {
 		return new ResponseEntity<String>(cusService.deleteCustomer(id), HttpStatus.OK);
 	}
-
 }
