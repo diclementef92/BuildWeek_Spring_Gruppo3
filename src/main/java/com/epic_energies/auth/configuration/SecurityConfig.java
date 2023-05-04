@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.epic_energies.auth.security.JwtAuthenticationEntryPoint;
 import com.epic_energies.auth.security.JwtAuthenticationFilter;
@@ -55,8 +56,10 @@ public class SecurityConfig {
 		.hasRole("ADMIN").requestMatchers("/api/auth/**").permitAll().anyRequest().authenticated())
 		.exceptionHandling(exception -> exception.authenticationEntryPoint(authenticationEntryPoint))
 		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-
-	return http.build();
+		
+		http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+		
+		return http.build();
     }
 
 }
