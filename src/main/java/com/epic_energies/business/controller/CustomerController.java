@@ -1,13 +1,11 @@
 package com.epic_energies.business.controller;
 
-import java.awt.print.Pageable;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,12 +37,12 @@ public class CustomerController {
 	
 	@GetMapping 
 	public ResponseEntity<?> findAllCustomersPaged(Pageable pageable) {
-		return new ResponseEntity<Page<Customer>>(cusService.findAllCustomersPaged(pageable), HttpStatus.FOUND);
+		return new ResponseEntity<Page<Customer>>(cusService.findAll(pageable), HttpStatus.FOUND);
 	}
 	
 	// QUI I VARI GETTERS COMPLESSI E PAGEABLE
 	
-	@GetMapping
+	@GetMapping("/findAllByBusinessNameLike")
 	public ResponseEntity<?> findAllByBusinessNameLike(@RequestBody String businessName) {
 		try {
 			return new ResponseEntity<List<Customer>>(cusService.findAllByBusinessNameLike(businessName), HttpStatus.FOUND);
@@ -53,7 +51,7 @@ public class CustomerController {
 		}
 	}
 	
-	@GetMapping
+	@GetMapping("/findAllByContactNameLike")
 	public ResponseEntity<?> findAllByContactNameLike(@RequestBody String contactName) {
 		try {
 			return new ResponseEntity<List<Customer>>(cusService.findAllByContactNameLike(contactName),HttpStatus.FOUND);
@@ -62,7 +60,7 @@ public class CustomerController {
 		}
 	}
 	
-	@GetMapping
+	@GetMapping("/getAllCustomersOrderByLastContactData")
 	public ResponseEntity<?> getAllCustomersOrderByLastContactData() {
 		try {
 			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByLastContactData(),HttpStatus.FOUND);
@@ -71,7 +69,7 @@ public class CustomerController {
 		}
 	}
 	
-	@GetMapping
+	@GetMapping("/getAllCustomersOrderByBusinessName")
 	public ResponseEntity<?> getAllCustomersOrderByBusinessName() {
 		try {
 			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByBusinessName(),HttpStatus.FOUND);
@@ -80,7 +78,7 @@ public class CustomerController {
 		}
 	}
 	
-	@GetMapping
+	@GetMapping("/getAllCustomersOrderByAnnualIncome")
 	public ResponseEntity<?> getAllCustomersOrderByAnnualIncome() {
 		try {
 			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByAnnualIncome(),HttpStatus.FOUND);
@@ -89,7 +87,7 @@ public class CustomerController {
 		}
 	}
 	
-	@GetMapping
+	@GetMapping("/getAllCustomersOrderByInsertData")
 	public ResponseEntity<?> getAllCustomersOrderByInsertData() {
 		try {
 			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByInsertData(),HttpStatus.FOUND);

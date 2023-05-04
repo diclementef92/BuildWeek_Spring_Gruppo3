@@ -51,7 +51,7 @@ public class BusinessRunner implements ApplicationRunner {
 	//  System.out.println(custService.getAllCustomersOrderByBusinessName().get());
 	//  System.out.println(custService.getAllCustomersOrderByAnnualIncome().get());
 	//  System.out.println(custService.getAllCustomersOrderByInsertData().get());
-	System.out.println(custService.getAllCustomersOrderByLastContactData().get());
+	//  System.out.println(custService.getAllCustomersOrderByLastContactData().get());
 
     }
 
