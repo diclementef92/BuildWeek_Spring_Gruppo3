@@ -3,6 +3,8 @@ package com.epic_energies.business.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,6 +30,7 @@ public class Address {
     private Integer streetNumber;
     private String place;
     private Integer postCode;
+    @Enumerated(EnumType.STRING)
     private E_AddressType addressType;
 
     @ManyToOne
