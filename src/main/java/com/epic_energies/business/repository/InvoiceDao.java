@@ -50,7 +50,7 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
 
     // ordine crescente degli importi fattura
     @Query("SELECT i FROM Invoice i ORDER BY i.amount ASC")
-    Optional<List<Invoice>> findByAmount();
+	List<Invoice> findByAmount();
 
     // ordine di data inserimento dalla più recente
     @Query("SELECT i FROM Invoice i ORDER BY i.date DESC")

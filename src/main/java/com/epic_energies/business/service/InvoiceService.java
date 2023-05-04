@@ -92,52 +92,48 @@ public class InvoiceService {
 	}
     }
 
-    public Optional<List<Invoice>> getAllInvoicesOrderByLastData() {
-	return invoiceDao.findByDate();
+	public Optional<List<Invoice>> getAllInvoicesOrderByData() {
+		return invoiceDao.getAllInvoiceOrderByDate();
     }
 
     public List<Invoice> findAll() {
-	return (List<Invoice>) invoiceDao.findAll();
-	return invoiceDao.getAllInvoiceOrderByDate();
+		return invoiceDao.findAll();
     }
 
-    /*
-     * public List<Invoice> findAll() { return (List<Invoice>) fatturaDao.findAll();
-     * }
-     */
-    public Optional<List<Invoice>> findYear() {
-	return fatturaDao.findByYear();
+	public Optional<List<Invoice>> findByYear() {
+		return invoiceDao.findByYear();
     }
 
-    public Optional<List<Invoice>> findAmount() {
-	return fatturaDao.findByAmount();
+	public List<Invoice> findByAmount() {
+		return invoiceDao.findByAmount();
     }
 
     public List<Invoice> findByDateBetween(Date d1, Date d2) {
-	return fatturaDao.findByDateBetween(d1, d2);
+		return invoiceDao.findByDateBetween(d1, d2);
     }
 
+	// PAGABLE
     public Page<Invoice> findAll(Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findAll(pageable);
+		return invoiceDao.findAll(pageable);
     }
 
     public Page<Invoice> findAllByCustomer(Customer c, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByCustomer(c, pageable);
+		return invoiceDao.findByCustomer(c, pageable);
     }
 
     public Page<Invoice> findAllByStatus(InvoiceStatus status, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByInvoiceStatus(status, pageable);
+		return invoiceDao.findByInvoiceStatus(status, pageable);
     }
 
     public Page<Invoice> findAllByDate(Date date, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByDate(date, pageable);
+		return invoiceDao.findByDate(date, pageable);
     }
 
     public Page<Invoice> findAllByYear(Integer year, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByYear(year, pageable);
+		return invoiceDao.findByYear(year, pageable);
     }
 
     public Page<Invoice> findAllByAmountRange(BigDecimal amount1, BigDecimal amount2, Pageable pageable) {
-	return (Page<Invoice>) invoiceDao.findByAmountBetween(amount1, amount2, pageable);
+		return invoiceDao.findByAmountBetween(amount1, amount2, pageable);
     }
 }
