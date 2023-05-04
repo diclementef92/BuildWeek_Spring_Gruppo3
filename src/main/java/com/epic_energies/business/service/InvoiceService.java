@@ -1,7 +1,7 @@
 package com.epic_energies.business.service;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -108,7 +108,7 @@ public class InvoiceService {
 		return invoiceDao.findByAmount();
     }
 
-    public List<Invoice> findByDateBetween(Date d1, Date d2) {
+	public List<Invoice> findByDateBetween(LocalDate d1, LocalDate d2) {
 		return invoiceDao.findByDateBetween(d1, d2);
     }
 
@@ -125,7 +125,7 @@ public class InvoiceService {
 		return invoiceDao.findByInvoiceStatus(status, pageable);
     }
 
-    public Page<Invoice> findAllByDate(Date date, Pageable pageable) {
+	public Page<Invoice> findAllByDate(LocalDate date, Pageable pageable) {
 		return invoiceDao.findByDate(date, pageable);
     }
 

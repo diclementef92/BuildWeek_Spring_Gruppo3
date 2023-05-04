@@ -1,7 +1,7 @@
 package com.epic_energies.business.repository;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,11 +29,11 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
     List<Invoice> findByInvoiceStatus(InvoiceStatus invoiceStatus);
 
     // filter per data precisa
-    List<Invoice> findByDate(Date date);
+	List<Invoice> findByDate(LocalDate date);
 
     // filter date in range
-    @Query("SELECT i FROM Invoice i WHERE i.amount BETWEEN ?1 AND ?2")
-    List<Invoice> findByDateBetween(Date date1, Date date2);
+	@Query("SELECT i FROM Invoice i WHERE i.date BETWEEN ?1 AND ?2")
+	List<Invoice> findByDateBetween(LocalDate date1, LocalDate date2);
 
     // filter per anno
     List<Invoice> findByYear(Integer year);
@@ -67,7 +67,7 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
 
     Page<Invoice> findByInvoiceStatus(InvoiceStatus invoiceStatus, Pageable pageable);
 
-    Page<Invoice> findByDate(Date date, Pageable pageable);
+	Page<Invoice> findByDate(LocalDate date, Pageable pageable);
 
     Page<Invoice> findByYear(Integer year, Pageable pageable);
 
