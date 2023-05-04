@@ -3,6 +3,8 @@ package com.epic_energies.business.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -36,6 +38,7 @@ public class Invoice {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonIgnoreProperties({"email", "insertData", "lastContactData", "annualIncome", "pec", "legalAddress", "operativeAddress", "list_invoices"})
     private Customer customer;
 
 	@Override
