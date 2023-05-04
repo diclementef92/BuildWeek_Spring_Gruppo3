@@ -124,8 +124,4 @@ public class CustomerService {
     public Page<Customer> findAll(Pageable pageable) {
     	return (Page<Customer>) customerRep.findAll(pageable);
     }
-
-    public Page<Customer> findAllByBusinessName(String businessName, Pageable pageable) {
-    	return (Page<Customer>) customerRep.findAllByBusinessName(businessName, pageable);
-    }
 }
