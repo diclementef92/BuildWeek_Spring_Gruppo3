@@ -109,13 +109,13 @@ public class BusinessConfig {
 	f.setNumber(fake.number().randomDigitNotZero());
 	int num = fake.number().numberBetween(1, 5);
 	if (num == 1) {
-	    f.setInvoice_status(InvoiceStatus.SENT);
+	    f.setInvoiceStatus(InvoiceStatus.SENT);
 	} else if (num == 2) {
-	    f.setInvoice_status(InvoiceStatus.RECEIVED);
+	    f.setInvoiceStatus(InvoiceStatus.RECEIVED);
 	} else if (num == 3) {
-	    f.setInvoice_status(InvoiceStatus.EXPIRED);
+	    f.setInvoiceStatus(InvoiceStatus.EXPIRED);
 	} else if (num == 4) {
-	    f.setInvoice_status(InvoiceStatus.SUSPENDED);
+	    f.setInvoiceStatus(InvoiceStatus.SUSPENDED);
 	} else {
 	    System.out.println("Errore durante la creazione della fattura!");
 	}
