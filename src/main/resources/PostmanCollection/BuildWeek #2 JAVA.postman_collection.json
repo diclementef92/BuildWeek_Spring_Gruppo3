@@ -7,6 +7,218 @@
 	},
 	"item": [
 		{
+			"name": "JWT Authorization",
+			"item": [
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "Register USER-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"User\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.user\",\r\n    \"email\": \"tester.U@example.com\",\r\n    \"password\": \"pOtf8r$4Nb!\",\r\n    \"roles\": [\"ROLE_USER\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register ADMIN-perTesting",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 400ms\", function (){",
+											"    pm.expect(pm.response.responseTime).to.be.below(400);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"Admin\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.admin\",\r\n    \"email\": \"tester.A@example.com\",\r\n    \"password\": \"d9sfgG8sle?\",\r\n    \"roles\": [\"ROLE_ADMIN\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register USER & ADMIN-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstname\": \"Hybrid\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.hybrid\",\r\n    \"email\": \"tester.H@example.com\",\r\n    \"password\": \"dsagt97kdf5?\",\r\n    \"roles\": [\"ROLE_USER\", \"ROLE_ADMIN\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Login USER-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.user\",\r\n    \"password\": \"pOtf8r$4Nb!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login ADMIN-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.admin\",\r\n    \"password\": \"d9sfgG8sle?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login USER & ADMIN-perTesting",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"TEST-r.hybrid\",\r\n    \"password\": \"dsagt97kdf5?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Customers",
 			"item": [
 				{
@@ -15,6 +227,16 @@
 						{
 							"name": "Find customer by ID",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -42,6 +264,16 @@
 						{
 							"name": "Find all customers",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -62,6 +294,16 @@
 						{
 							"name": "Add new Customer",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -91,6 +333,16 @@
 						{
 							"name": "Update existing customer",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -127,6 +379,16 @@
 						{
 							"name": "Remove customer by entity",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"body": {
@@ -156,6 +418,16 @@
 						{
 							"name": "Remove customer by ID",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -197,6 +469,16 @@
 						{
 							"name": "Find address by ID",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -224,6 +506,16 @@
 						{
 							"name": "Find all addresses",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -244,6 +536,16 @@
 						{
 							"name": "Add new address",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -273,6 +575,16 @@
 						{
 							"name": "Update existing address",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -309,6 +621,16 @@
 						{
 							"name": "Remove address by entity",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"body": {
@@ -338,6 +660,16 @@
 						{
 							"name": "Remove address by ID",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -379,6 +711,16 @@
 						{
 							"name": "Find invoice by ID",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -406,6 +748,16 @@
 						{
 							"name": "Find all invoices",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -426,6 +778,16 @@
 						{
 							"name": "Add new Invoice",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": []
 							},
@@ -434,6 +796,16 @@
 						{
 							"name": "Update existing invoice",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -470,6 +842,16 @@
 						{
 							"name": "Remove invoice by Entity",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"body": {
@@ -499,6 +881,16 @@
 						{
 							"name": "Remove invoice by ID",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
