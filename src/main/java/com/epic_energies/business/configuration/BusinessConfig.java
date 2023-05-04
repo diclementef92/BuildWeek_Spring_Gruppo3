@@ -104,15 +104,9 @@ public class BusinessConfig {
     public Invoice fakeInvoice() {
 	Invoice f = new Invoice();
 	Faker fake = Faker.instance(new Locale("en-EN"));
-
-	Date from = new Date(100, 0, 1);// aggiunge 1900 all'anno
+	Date from = new Date(100, 0, 1); // aggiunge 1900 all'anno
 	Date to = new Date();
-
-	System.out.println(from + " - " + to);
-
 	Date date = fake.date().between(from, to);
-	System.out.println("" + date.getYear() + date.getMonth() + date.getDate());
-
 	f.setYear(date.getYear() + 1900);
 	f.setDate(LocalDate.of(date.getYear() + 1900, date.getMonth() + 1, date.getDate()));
 	f.setAmount(BigDecimal.valueOf(fake.number().randomDouble(2, 0, 1000)));
