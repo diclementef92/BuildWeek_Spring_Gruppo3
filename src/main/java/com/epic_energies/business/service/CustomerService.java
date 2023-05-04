@@ -3,6 +3,7 @@ package com.epic_energies.business.service;
 import org.springframework.data.domain.Pageable;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
@@ -138,6 +139,14 @@ public class CustomerService {
     
     public Page<Customer> findCustomersByIncomeRange(BigDecimal amount1, BigDecimal amount2, Pageable pageable) {
     	return (Page<Customer>) customerRep.findCustomersByIncomeRange(amount1, amount2, pageable);
+    }
+    
+    public Page<Customer> findCustomersByInsertData(LocalDate data1, LocalDate data2, Pageable pageable) {
+    	return (Page<Customer>) customerRep.findCustomerByInsertData(data1, data2, pageable);
+    }
+    
+    public Page<Customer> findCustomersByLastContactData(LocalDate data1, LocalDate data2, Pageable pageable) {
+    	return (Page<Customer>) customerRep.findCustomerByLastContactData(data1, data2, pageable);
     }
 
 }

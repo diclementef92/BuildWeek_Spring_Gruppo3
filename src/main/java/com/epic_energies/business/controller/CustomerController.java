@@ -2,6 +2,7 @@ package com.epic_energies.business.controller;
 
 import org.springframework.data.domain.Pageable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -49,16 +50,19 @@ public class CustomerController {
 		return new ResponseEntity<Page<Customer>>(cusService.findAllByBusinessNameLike(name, pageable), HttpStatus.FOUND);
 	}
 	
-	@GetMapping("/paged/income/{amount1}-{amount2}")
-	public ResponseEntity<?> findCustomersByIncomeRangePaged(
-			@PathVariable BigDecimal amount1, 
-			@PathVariable BigDecimal amount2, 
-			Pageable pageable) {
-		return new ResponseEntity<Page<Customer>>(cusService.findCustomersByIncomeRange(
-				amount1, 
-				amount2, 
-				pageable), 
-				HttpStatus.FOUND);
+	@GetMapping("/paged/income/{amount1}&{amount2}")
+	public ResponseEntity<?> findCustomersByIncomeRangePaged(@PathVariable BigDecimal amount1, @PathVariable BigDecimal amount2, Pageable pageable) {
+		return new ResponseEntity<Page<Customer>>(cusService.findCustomersByIncomeRange(amount1, amount2, pageable), HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/paged/insertdata/{data1}&{data2}")
+	public ResponseEntity<?> findCustomersByInsertDataPaged(@PathVariable LocalDate data1, @PathVariable LocalDate data2, Pageable pageable) {
+		return new ResponseEntity<Page<Customer>>(cusService.findCustomersByInsertData(data1, data2, pageable), HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/paged/lastcontact/{data1}&{data2}")
+	public ResponseEntity<?> findCustomersByLastContactDataPaged(@PathVariable LocalDate data1, @PathVariable LocalDate data2, Pageable pageable) {
+		return new ResponseEntity<Page<Customer>>(cusService.findCustomersByLastContactData(data1, data2, pageable), HttpStatus.FOUND);
 	}
 
 	@GetMapping("/findAllByBusinessNameLike")

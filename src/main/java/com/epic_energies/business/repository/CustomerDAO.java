@@ -1,6 +1,7 @@
 package com.epic_energies.business.repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,7 +53,18 @@ public interface CustomerDAO extends CrudRepository<Customer, Long>, PagingAndSo
 	@Query("SELECT c FROM Customer c WHERE c.annualIncome BETWEEN :amount1 AND :amount2")
 	Page<Customer> findCustomersByIncomeRange(
 			@Param("amount1") BigDecimal amount1, 
-			@Param("amount1") BigDecimal amount2, 
+			@Param("amount2") BigDecimal amount2, 
 			Pageable pageable);
 	
+	@Query("SELECT c FROM Customer c WHERE c.insertData BETWEEN :data1 AND :data2")
+	Page<Customer> findCustomerByInsertData(
+			@Param("data1") LocalDate amount1, 
+			@Param("data2") LocalDate amount2, 
+			Pageable pageable);
+	
+	@Query("SELECT c FROM Customer c WHERE c.lastContactData BETWEEN :data1 AND :data2")
+	Page<Customer> findCustomerByLastContactData(
+			@Param("data1") LocalDate amount1, 
+			@Param("data2") LocalDate amount2, 
+			Pageable pageable);
 }
