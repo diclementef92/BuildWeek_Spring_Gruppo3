@@ -42,7 +42,6 @@ public class Customer {
     private String contactEmail;
     private String contactName;
     private Long contactPhone;
-
     @Enumerated(EnumType.STRING)
     private E_CustomerType costumerType;
 
@@ -53,7 +52,7 @@ public class Customer {
     private Address operativeAddress;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
-    @JsonIgnoreProperties({"year", "number", "customer"})
+    @JsonIgnoreProperties({ "year", "number", "customer" })
     private List<Invoice> list_invoices;
 
 }

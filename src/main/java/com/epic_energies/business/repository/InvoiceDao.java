@@ -1,7 +1,7 @@
 package com.epic_energies.business.repository;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.epic_energies.business.model.Customer;
@@ -42,6 +43,8 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
     List<Invoice> findByAmountGreaterThan(BigDecimal amount);
 
     // filter per range d'importi
+    @Query("SELECT i FROM Invoice i WHERE i.amount BETWEEN :amount1 AND :amount2")
+    List<Invoice> findByAmountBetween(@Param("amount1") BigDecimal amount1, @Param("amount2") BigDecimal amount2);
 
     // ordine crescente degli importi fattura
     @Query("SELECT i FROM Invoice i ORDER BY i.amount ASC")
@@ -57,4 +60,14 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
 
     // PAGEABLE QUERIES
     Page<Invoice> findAll(Pageable pageable);
+
+    Page<Invoice> findByCustomer(Customer customer, Pageable pageable);
+
+    Page<Invoice> findByInvoiceStatus(InvoiceStatus invoiceStatus, Pageable pageable);
+
+    Page<Invoice> findByDate(Date date, Pageable pageable);
+
+    Page<Invoice> findByYear(Integer year, Pageable pageable);
+
+    Page<Invoice> findByAmountBetween(BigDecimal amount1, BigDecimal amount2, Pageable pageable);
 }

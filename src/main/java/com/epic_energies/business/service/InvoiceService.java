@@ -1,5 +1,7 @@
 package com.epic_energies.business.service;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.model.Invoice;
+import com.epic_energies.business.model.InvoiceStatus;
 import com.epic_energies.business.repository.InvoiceDao;
 import com.github.javafaker.Faker;
 
@@ -99,5 +102,25 @@ public class InvoiceService {
 
     public Page<Invoice> findAll(Pageable pageable) {
 	return (Page<Invoice>) invoiceDao.findAll(pageable);
+    }
+
+    public Page<Invoice> findAllByCustomer(Customer c, Pageable pageable) {
+	return (Page<Invoice>) invoiceDao.findByCustomer(c, pageable);
+    }
+
+    public Page<Invoice> findAllByStatus(InvoiceStatus status, Pageable pageable) {
+	return (Page<Invoice>) invoiceDao.findByInvoiceStatus(status, pageable);
+    }
+
+    public Page<Invoice> findAllByDate(Date date, Pageable pageable) {
+	return (Page<Invoice>) invoiceDao.findByDate(date, pageable);
+    }
+
+    public Page<Invoice> findAllByYear(Integer year, Pageable pageable) {
+	return (Page<Invoice>) invoiceDao.findByYear(year, pageable);
+    }
+
+    public Page<Invoice> findAllByAmountRange(BigDecimal amount1, BigDecimal amount2, Pageable pageable) {
+	return (Page<Invoice>) invoiceDao.findByAmountBetween(amount1, amount2, pageable);
     }
 }
