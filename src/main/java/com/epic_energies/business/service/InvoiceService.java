@@ -98,19 +98,15 @@ public class InvoiceService {
 
     public List<Invoice> findAll() {
 	return (List<Invoice>) invoiceDao.findAll();
-	return fatturaDao.getAllInvoiceOrderByDate();
+	return invoiceDao.getAllInvoiceOrderByDate();
     }
 
-    public List<Invoice> findAll() {
-	return (List<Invoice>) fatturaDao.findAll();
-    }
-
+    /*
+     * public List<Invoice> findAll() { return (List<Invoice>) fatturaDao.findAll();
+     * }
+     */
     public Optional<List<Invoice>> findYear() {
 	return fatturaDao.findByYear();
-    }
-
-    public List<Invoice> findDate(Date d) {
-	return fatturaDao.findByDate(d);
     }
 
     public Optional<List<Invoice>> findAmount() {
