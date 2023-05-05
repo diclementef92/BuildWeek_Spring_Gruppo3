@@ -4,21 +4,17 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
-
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.model.Invoice;
 import com.epic_energies.business.model.InvoiceStatus;
 import com.epic_energies.business.repository.InvoiceDao;
 import com.github.javafaker.Faker;
-
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
@@ -35,84 +31,101 @@ public class InvoiceService {
 
     private Faker fake = Faker.instance(new Locale("en-EN"));
 
-    public void persistInvoice(Invoice i, Long id) {
-	Customer c = customerService.findCustomerById(id);
-	i.setCustomer(c);
-
-	invoiceDao.save(i);
+    public String persistInvoice(Invoice i, Long id) {
+		Customer c = customerService.findCustomerById(id);
+		i.setCustomer(c);
+		invoiceDao.save(i);
+	    return "Invoice correctly persisted on Database!";
     }
 
     public void createInvoice(Long id) {
-	persistInvoice(objFattura.getObject(), id);
+    	persistInvoice(objFattura.getObject(), id);
     }
 
     public void createFakeInvoice() {
 
-	List<Customer> list_customer = customerService.findAll();
-	Integer random = fake.number().numberBetween(0, list_customer.size() - 1);
-	Customer c = list_customer.get(random);
-	Invoice i = objFattura.getObject();
-
-	i.setCustomer(c);
-	invoiceDao.save(i);
+		List<Customer> list_customer = customerService.findAll();
+		Integer random = fake.number().numberBetween(0, list_customer.size() - 1);
+		Customer c = list_customer.get(random);
+		Invoice i = objFattura.getObject();
+	
+		i.setCustomer(c);
+		invoiceDao.save(i);
     }
 
     public String updateInvoice(Invoice i) {
-	if (invoiceDao.existsById(i.getId())) {
-	    invoiceDao.save(i);
-	    return "Invoice correctly updated on Database";
-	} else {
-	    throw new EntityNotFoundException("Invoice with ID --> " + i.getId() + " doesn't exists on Database!");
-	}
+		if (invoiceDao.existsById(i.getId())) {
+		    invoiceDao.save(i);
+		    return "Invoice correctly updated on Database";
+		} else {
+		    throw new EntityNotFoundException("Invoice with ID --> " + i.getId() + " doesn't exists on Database!");
+		}
     }
 
     public String deleteInvoice(Invoice i) {
-	if (invoiceDao.existsById(i.getId())) {
-	    invoiceDao.delete(i);
-	    return "Invoice correctly deleted from Database";
-	} else {
-	    throw new EntityNotFoundException("Invoice with ID --> " + i.getId() + " doesn't exists on Database!");
-	}
+		if (invoiceDao.existsById(i.getId())) {
+		    invoiceDao.delete(i);
+		    return "Invoice correctly deleted from Database";
+		} else {
+		    throw new EntityNotFoundException("Invoice with ID --> " + i.getId() + " doesn't exists on Database!");
+		}
     }
 
     public String deleteInvoice(Long id) {
-	if (invoiceDao.existsById(id)) {
-	    invoiceDao.deleteById(id);
-	    return "Invoice correctly deleted from Database";
-	} else {
-	    throw new EntityNotFoundException("Invoice with ID --> " + id + " doesn't exists on Database!");
-	}
+		if (invoiceDao.existsById(id)) {
+		    invoiceDao.deleteById(id);
+		    return "Invoice correctly deleted from Database";
+		} else {
+		    throw new EntityNotFoundException("Invoice with ID --> " + id + " doesn't exists on Database!");
+		}
     }
 
     public Invoice FindInvoiceById(Long id) {
-	if (invoiceDao.existsById(id)) {
-	    return invoiceDao.findById(id).get();
-	} else {
-	    throw new EntityNotFoundException("Invoice with ID --> " + id + " doesn't exists on Database!");
-	}
+    	if (invoiceDao.existsById(id)) {
+	    	return invoiceDao.findById(id).get();
+		} else {
+	    	throw new EntityNotFoundException("Invoice with ID --> " + id + " doesn't exists on Database!");
+		}
     }
-
-	public Optional<List<Invoice>> getAllInvoicesOrderByData() {
-		return invoiceDao.getAllInvoiceOrderByDate();
-    }
-
+    
     public List<Invoice> findAll() {
 		return invoiceDao.findAll();
     }
 
-	public Optional<List<Invoice>> findByYear() {
-		return invoiceDao.findByYear();
+	public List<Invoice> getAllInvoicesOrderByDate() {
+		return invoiceDao.findAllOrderedByDate();
     }
-
-	public List<Invoice> findByAmount() {
-		return invoiceDao.findByAmount();
+   
+	public List<Invoice> findAllOrderedByYear() {
+		return invoiceDao.findAllOrderedByYear();
     }
+	
+	public List<Invoice> findAllOrderedByAmount() {
+		return invoiceDao.findAllOrderedByAmount();
+    }
+	
+	public List<Invoice> findByCustomer(Customer c) {
+		return invoiceDao.findByCustomer(c);
+	}
+	
+	public List<Invoice> getByCustomerId(Long id) {
+		if (invoiceDao.existsById(id)) {
+			Customer c = customerService.findCustomerById(id);
+			return findByCustomer(c);
+		} else {
+			throw new EntityNotFoundException("Customer with ID --> " + id + " doesn't exists on Database!");
+		}
+	}
+	
+	public List<Invoice> findByStatus(InvoiceStatus status) {
+		return invoiceDao.findByInvoiceStatus(status);
+	}
 
 	public List<Invoice> findByDateBetween(LocalDate d1, LocalDate d2) {
 		return invoiceDao.findByDateBetween(d1, d2);
     }
 
-	// PAGABLE
+	// PAGEABLE
     public Page<Invoice> findAll(Pageable pageable) {
 		return invoiceDao.findAll(pageable);
     }
