@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.epic_energies.business.model.Address;
 import com.epic_energies.business.model.Customer;
+import com.epic_energies.business.model.E_AddressType;
 import com.epic_energies.business.service.AddressService;
 
 @RestController
@@ -34,11 +35,6 @@ public class AddressController {
 	@GetMapping
 	public ResponseEntity<?> findAllAddress() {
 		return new ResponseEntity<List<Address>>(addService.findAllAddress(), HttpStatus.OK);
-	}
-
-	@GetMapping("/paged")
-	public ResponseEntity<?> findAllAddressPaged(Pageable pageable) {
-		return new ResponseEntity<Page<Address>>(addService.findAll(pageable), HttpStatus.FOUND);
 	}
 
 	@PostMapping
@@ -60,5 +56,16 @@ public class AddressController {
 	public ResponseEntity<?> deleteAddress(@PathVariable Long id) {
 		return new ResponseEntity<String>(addService.deleteAddress(id), HttpStatus.OK);
 	}
+	
+	@GetMapping("/paged")
+	public ResponseEntity<?> findAllAddressPaged(Pageable pageable) {
+		return new ResponseEntity<Page<Address>>(addService.findAll(pageable), HttpStatus.FOUND);
+	}
+
+	@GetMapping("/paged/by-address-type/{type}")
+	public ResponseEntity<?> findAllAddressByAddressTypePaged(@PathVariable E_AddressType type, Pageable pageable) {
+		return new ResponseEntity<Page<Address>>(addService.findAllAddressByAddressType(type, pageable), HttpStatus.FOUND);
+	}
+
 
 }
