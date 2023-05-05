@@ -91,7 +91,7 @@ public class InvoiceController {
 	return new ResponseEntity<>(invService.deleteInvoice(id), HttpStatus.OK);
     }
 
-	@GetMapping("/dateBetween/{d1}&{d2}")
+	@GetMapping("/dateBetween/{d1}/{d2}")
 	public ResponseEntity<?> getfindByDateBetween(@PathVariable LocalDate d1, @PathVariable LocalDate d2) {
 	return new ResponseEntity<>(invService.findByDateBetween(d1, d2), HttpStatus.FOUND);
     }

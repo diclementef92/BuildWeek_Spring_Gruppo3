@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.epic_energies.auth.security.JwtAuthenticationEntryPoint;
 import com.epic_energies.auth.security.JwtAuthenticationFilter;
@@ -20,43 +21,44 @@ import com.epic_energies.auth.security.JwtAuthenticationFilter;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    private UserDetailsService userDetailsService;
+	private UserDetailsService userDetailsService;
 
-    private JwtAuthenticationEntryPoint authenticationEntryPoint;
+	private JwtAuthenticationEntryPoint authenticationEntryPoint;
 
-    private JwtAuthenticationFilter authenticationFilter;
+	private JwtAuthenticationFilter authenticationFilter;
 
-    public SecurityConfig(UserDetailsService userDetailsService, JwtAuthenticationEntryPoint authenticationEntryPoint,
-	    JwtAuthenticationFilter authenticationFilter) {
-	this.userDetailsService = userDetailsService;
-	this.authenticationEntryPoint = authenticationEntryPoint;
-	this.authenticationFilter = authenticationFilter;
-    }
+	public SecurityConfig(UserDetailsService userDetailsService, JwtAuthenticationEntryPoint authenticationEntryPoint,
+			JwtAuthenticationFilter authenticationFilter) {
+		this.userDetailsService = userDetailsService;
+		this.authenticationEntryPoint = authenticationEntryPoint;
+		this.authenticationFilter = authenticationFilter;
+	}
 
-    @Bean
-    public static PasswordEncoder passwordEncoder() {
-	return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public static PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
-	return configuration.getAuthenticationManager();
-    }
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+		return configuration.getAuthenticationManager();
+	}
 
-    @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-	http.cors().and().csrf().disable().authorizeHttpRequests((authorize) -> authorize
-		.requestMatchers(HttpMethod.GET, "/api/**").hasAnyRole("USER", "ADMIN")
-		.requestMatchers(HttpMethod.POST, "/api/customers/**", "/api/invoices/**", "/api/addresses/**")
-		.hasRole("ADMIN")
-		.requestMatchers(HttpMethod.PUT, "/api/customers/**", "/api/invoices/**", "/api/addresses/**")
-		.hasRole("ADMIN")
-		.requestMatchers(HttpMethod.DELETE, "/api/customers/**", "/api/invoices/**", "/api/addresses/**")
-		.hasRole("ADMIN").requestMatchers("/api/auth/**").permitAll().anyRequest().authenticated())
-		.exceptionHandling(exception -> exception.authenticationEntryPoint(authenticationEntryPoint))
-		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+	@Bean
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http.cors().and().csrf().disable().authorizeHttpRequests((authorize) -> authorize
+				.requestMatchers(HttpMethod.GET, "/api/**").hasAnyRole("USER", "ADMIN")
+				.requestMatchers(HttpMethod.POST, "/api/customers/**", "/api/invoices/**", "/api/addresses/**")
+				.hasRole("ADMIN")
+				.requestMatchers(HttpMethod.PUT, "/api/customers/**", "/api/invoices/**", "/api/addresses/**")
+				.hasRole("ADMIN")
+				.requestMatchers(HttpMethod.DELETE, "/api/customers/**", "/api/invoices/**", "/api/addresses/**")
+				.hasRole("ADMIN").requestMatchers("/api/auth/**").permitAll().anyRequest().authenticated())
+				.exceptionHandling(exception -> exception.authenticationEntryPoint(authenticationEntryPoint))
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-	return http.build();
-    }
+		http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
+		return http.build();
+	}
 }

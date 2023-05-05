@@ -1,6 +1,7 @@
 package com.epic_energies.business.repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.epic_energies.business.model.Address;
 import com.epic_energies.business.model.Customer;
 
 @Repository
@@ -21,10 +23,10 @@ public interface CustomerDAO extends CrudRepository<Customer, Long>, PagingAndSo
 
     Optional<List<Customer>> findAllByBusinessName(String name);
 
-    @Query("SELECT c FROM Customer c WHERE c.businessName LIKE '%name%'")
+	@Query("SELECT c FROM Customer c WHERE LOWER(c.businessName) LIKE LOWER(CONCAT('%', :name, '%'))")
     Optional<List<Customer>> findAllByBusinessNameLike(@Param("name") String name);
 
-    @Query("SELECT c FROM Customer c WHERE c.contactName LIKE '%name%'")
+    @Query("SELECT c FROM Customer c WHERE c.contactName LIKE LOWER(CONCAT('%', :name, '%'))")
     Optional<List<Customer>> findAllByContactNameLike(@Param("name") String name);
 
     // ordine alfabetico per business name
@@ -43,6 +45,12 @@ public interface CustomerDAO extends CrudRepository<Customer, Long>, PagingAndSo
     @Query("SELECT c FROM Customer c ORDER BY c.lastContactData DESC")
     Optional<List<Customer>> getAllCustomersOrderByLastContactData();
 
+	@Query("SELECT c FROM Customer c INNER JOIN c.legalAddress la WHERE c.legalAddress =:legalAddress")
+	Optional<List<Customer>> findAllByLegalAddress(@Param("legalAddress") Address legalAddress);
+
+	@Query("SELECT c FROM Customer c INNER JOIN c.operativeAddress la WHERE c.operativeAddress =:operativeAddress")
+	Optional<List<Customer>> findAllByOperativeAddress(@Param("operativeAddress") Address operativeAddress);
+
 	// PAGEABLE QUERIES
     Page<Customer> findAll(Pageable pageable);
 
@@ -52,7 +60,18 @@ public interface CustomerDAO extends CrudRepository<Customer, Long>, PagingAndSo
 	@Query("SELECT c FROM Customer c WHERE c.annualIncome BETWEEN :amount1 AND :amount2")
 	Page<Customer> findCustomersByIncomeRange(
 			@Param("amount1") BigDecimal amount1, 
-			@Param("amount1") BigDecimal amount2, 
+			@Param("amount2") BigDecimal amount2, 
 			Pageable pageable);
 	
+	@Query("SELECT c FROM Customer c WHERE c.insertData BETWEEN :data1 AND :data2")
+	Page<Customer> findCustomerByInsertData(
+			@Param("data1") LocalDate amount1, 
+			@Param("data2") LocalDate amount2, 
+			Pageable pageable);
+	
+	@Query("SELECT c FROM Customer c WHERE c.lastContactData BETWEEN :data1 AND :data2")
+	Page<Customer> findCustomerByLastContactData(
+			@Param("data1") LocalDate amount1, 
+			@Param("data2") LocalDate amount2, 
+			Pageable pageable);
 }
