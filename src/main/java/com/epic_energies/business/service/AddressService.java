@@ -5,12 +5,14 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.epic_energies.business.model.Address;
+import com.epic_energies.business.model.E_AddressType;
 import com.epic_energies.business.model.Municipality;
 import com.epic_energies.business.repository.AddressDAO;
 import com.github.javafaker.Faker;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -60,8 +62,13 @@ public class AddressService {
 
 	public String deleteAddress(Address a) {
 		if (AddressRepo.existsById(a.getId())) {
-			AddressRepo.delete(a);
-			return "Address correctly deleted from Database!";
+			switch (a.getAddressType()) {
+			case LEGAL_ADDRESS -> throw new DataIntegrityViolationException("Customer must have at least one legal address assigned!");
+			default -> {
+				AddressRepo.delete(a);
+				return "Address correctly deleted from Database!";
+			}
+			}
 		} else {
 			throw new EntityNotFoundException("Address with ID --> " + a.getId() + " doesn't exists on Database");
 		}
@@ -91,5 +98,9 @@ public class AddressService {
 
 	public Page<Address> findAll(Pageable pageable) {
 		return (Page<Address>) AddressRepo.findAll(pageable);
+	}
+	
+	public Page<Address> findAllAddressByAddressType(E_AddressType type, Pageable pageable) {
+		return (Page<Address>) AddressRepo.findByAddressType(type, pageable);
 	}
 }
