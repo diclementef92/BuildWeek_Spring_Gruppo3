@@ -10,14 +10,10 @@ import com.epic_energies.business.model.Municipality;
 import com.epic_energies.business.repository.AddressDAO;
 import com.github.javafaker.Faker;
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import com.epic_energies.business.model.Address;
-import com.epic_energies.business.repository.AddressDAO;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service

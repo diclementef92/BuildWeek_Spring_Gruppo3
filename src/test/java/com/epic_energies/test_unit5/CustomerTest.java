@@ -2,7 +2,6 @@ package com.epic_energies.test_unit5;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import com.epic_energies.business.model.Customer;

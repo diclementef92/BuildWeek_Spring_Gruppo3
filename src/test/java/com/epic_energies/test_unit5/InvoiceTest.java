@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.epic_energies.business.model.Address;
 import com.epic_energies.business.model.Invoice;
 
 class InvoiceTest {

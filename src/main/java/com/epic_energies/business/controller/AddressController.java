@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.epic_energies.business.model.Address;
-import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.model.E_AddressType;
 import com.epic_energies.business.service.AddressService;
 
