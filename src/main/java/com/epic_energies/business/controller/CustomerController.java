@@ -1,6 +1,5 @@
 package com.epic_energies.business.controller;
 
-import org.springframework.data.domain.Pageable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -20,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.epic_energies.business.model.Address;
 import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.service.CustomerService;
 
@@ -89,6 +89,44 @@ public class CustomerController {
 	public ResponseEntity<?> getAllCustomersOrderByInsertData() {
 		try {
 			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByInsertData(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/getAllCustomersByLegalAddress")
+	public ResponseEntity<?> getAllCustomersByLegalAddress(@RequestBody Address address) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByLegalAddress(address), HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/getAllCustomersByOperativeAddress")
+	public ResponseEntity<?> getAllCustomersByOperativeAddress(@RequestBody Address address) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByOperativeAddress(address), HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/getAllByLegalAddressProvince")
+	public ResponseEntity<?> findAllByLegalAddressProvince(@RequestBody String province) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByLegalAddressProvince(province),
+					HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/getAllByOperativeAddressProvince")
+	public ResponseEntity<?> findAllByOperativeAddressProvince(@RequestBody String province) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByOperativeAddressProvince(province),
+					HttpStatus.FOUND);
 		} catch (NoSuchElementException e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}

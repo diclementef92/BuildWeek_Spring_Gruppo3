@@ -14,7 +14,7 @@ deve permettere di gestire un elenco dei clienti, che sono caratterizzati dai se
 -telefono
 -emailContatto
 -nomeContatto
--cognomeContatto
+-cognomeContatto <- mancante
 -telefonoContatto
 
 Attributi di relazione
@@ -49,7 +49,7 @@ estrazione dati -> alessandro
 
 
 3) gruppo
-Associato ad ogni cliente c'Ã¨ un insieme di fatture. Le fatture sono caratterizzate dai seguenti dati:
+Associato ad ogni cliente c'è un insieme di fatture. Le fatture sono caratterizzate dai seguenti dati:
 anno : Integer
 data : Date
 importo : BigDecimal
