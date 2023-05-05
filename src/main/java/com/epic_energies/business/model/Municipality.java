@@ -1,14 +1,9 @@
 package com.epic_energies.business.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.epic_energies.business.service.MunicipalityService;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -42,7 +37,7 @@ public class Municipality {
 	@Column(nullable = false)
 	private String name;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JsonIgnoreProperties({"municipalities", "name", "county"})
 	private Province province;
 	

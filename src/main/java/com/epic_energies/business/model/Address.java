@@ -1,6 +1,6 @@
 package com.epic_energies.business.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,6 +29,7 @@ public class Address {
     private Integer streetNumber;
     private String place;
     private Integer postCode;
+    
     @Enumerated(EnumType.STRING)
     private E_AddressType addressType;
 

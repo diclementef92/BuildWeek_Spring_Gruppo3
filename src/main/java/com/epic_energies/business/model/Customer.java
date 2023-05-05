@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -42,16 +43,17 @@ public class Customer {
     private String contactEmail;
     private String contactName;
     private Long contactPhone;
+    
     @Enumerated(EnumType.STRING)
     private E_CustomerType costumerType;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address legalAddress;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Address operativeAddress;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties({ "year", "number", "customer" })
     private List<Invoice> list_invoices;
 
