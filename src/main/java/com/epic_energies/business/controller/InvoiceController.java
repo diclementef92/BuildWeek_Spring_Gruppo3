@@ -97,7 +97,7 @@ public class InvoiceController {
     	return new ResponseEntity<Page<Invoice>>(invService.findAllByAmountRange(amount1, amount2, pageable), HttpStatus.FOUND);
     }
 
-    @PostMapping
+    @PostMapping("/{id}")
     public ResponseEntity<?> addNewInvoice(@RequestBody Invoice i, @PathVariable Long id) {
     	return new ResponseEntity<String>(invService.persistInvoice(i, id), HttpStatus.CREATED);
     }
