@@ -53,7 +53,7 @@ public class Customer {
     @OneToOne(cascade = CascadeType.REMOVE)
     private Address operativeAddress;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REMOVE, CascadeType.REFRESH}, orphanRemoval = true)
     @JsonIgnoreProperties({ "year", "number", "customer" })
     private List<Invoice> list_invoices;
 
