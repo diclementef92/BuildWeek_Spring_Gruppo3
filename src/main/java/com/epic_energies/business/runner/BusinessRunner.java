@@ -48,7 +48,7 @@ public class BusinessRunner implements ApplicationRunner {
 	}
 
 	if (invoiceService.findAll().isEmpty()) {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 150; i++) {
 			invoiceService.createFakeInvoice();
 		}
 		log.info("invoices created!");
