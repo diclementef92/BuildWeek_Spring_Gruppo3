@@ -1,9 +1,5 @@
 package com.epic_energies.business.model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.epic_energies.business.service.MunicipalityService;
@@ -43,7 +39,7 @@ public class Municipality {
 	private String name;
 	
 	@ManyToOne
-	@JsonIgnoreProperties({"municipalities", "name", "county"})
+	@JsonIgnoreProperties({ "municipalities", "county" })
 	private Province province;
 	
 		

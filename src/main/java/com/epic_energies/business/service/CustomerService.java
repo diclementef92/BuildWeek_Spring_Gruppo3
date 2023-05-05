@@ -90,6 +90,15 @@ public class CustomerService {
 		return customerRep.findAllByOperativeAddress(address).get();
 	}
 
+	public List<Customer> findAllByLegalAddressProvince(String province) throws NoSuchElementException {
+		return customerRep.findAllByLegalAddressProvince(province).get();
+	}
+
+	public List<Customer> findAllByOperativeAddressProvince(String province) throws NoSuchElementException {
+		return customerRep.findAllByOperativeAddressProvince(province).get();
+	}
+
+
 	public String persistCustomer(Customer c) {
 		customerRep.save(c);
 		return "Customer correctly persisted on Database!";

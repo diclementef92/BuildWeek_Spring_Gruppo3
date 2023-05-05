@@ -112,6 +112,26 @@ public class CustomerController {
 		}
 	}
 
+	@GetMapping("/getAllByLegalAddressProvince")
+	public ResponseEntity<?> findAllByLegalAddressProvince(@RequestBody String province) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByLegalAddressProvince(province),
+					HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/getAllByOperativeAddressProvince")
+	public ResponseEntity<?> findAllByOperativeAddressProvince(@RequestBody String province) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByOperativeAddressProvince(province),
+					HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+
 	@GetMapping("/paged")
 	public ResponseEntity<?> findAllCustomersPaged(Pageable pageable) {
 		return new ResponseEntity<Page<Customer>>(cusService.findAll(pageable), HttpStatus.FOUND);

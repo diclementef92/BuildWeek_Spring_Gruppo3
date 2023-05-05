@@ -51,6 +51,20 @@ public interface CustomerDAO extends CrudRepository<Customer, Long>, PagingAndSo
 	@Query("SELECT c FROM Customer c INNER JOIN c.operativeAddress la WHERE c.operativeAddress =:operativeAddress")
 	Optional<List<Customer>> findAllByOperativeAddress(@Param("operativeAddress") Address operativeAddress);
 
+//	@Query(value = "select c.* " + "from customers c " + "inner join addresses a on a.id = c.legal_address_id "
+//			+ "inner join municipalities m ON m.id = a.municipality_id "
+//			+ "inner join provinces p ON p.id = m.province_id "
+//			+ "where p.abbr=:province", nativeQuery = true)
+//	Optional<List<Customer>> findAllByLegalAddressProvince(@Param("province") String province);
+
+	@Query("select c FROM Customer c " + "INNER JOIN c.legalAddress la " + "INNER JOIN la.Municipality m "
+			+ "INNER JOIN m.province p " + "WHERE LOWER(p.name) LIKE CONCAT('%', :province, '%')")
+	Optional<List<Customer>> findAllByLegalAddressProvince(@Param("province") String province);
+
+	@Query("select c FROM Customer c " + "INNER JOIN c.operativeAddress la " + "INNER JOIN la.Municipality m "
+			+ "INNER JOIN m.province p " + "WHERE LOWER(p.name) LIKE CONCAT('%', :province, '%')")
+	Optional<List<Customer>> findAllByOperativeAddressProvince(@Param("province") String province);
+
 	// PAGEABLE QUERIES
     Page<Customer> findAll(Pageable pageable);
 
