@@ -22,10 +22,10 @@ public interface CustomerDAO extends CrudRepository<Customer, Long>, PagingAndSo
 
     Optional<List<Customer>> findAllByBusinessName(String name);
 
-    @Query("SELECT c FROM Customer c WHERE c.businessName LIKE '%name%'")
+    @Query("SELECT c FROM Customer c WHERE c.businessName LIKE LOWER(CONCAT('%', :name, '%'))")
     Optional<List<Customer>> findAllByBusinessNameLike(@Param("name") String name);
 
-    @Query("SELECT c FROM Customer c WHERE c.contactName LIKE '%name%'")
+    @Query("SELECT c FROM Customer c WHERE c.contactName LIKE LOWER(CONCAT('%', :name, '%'))")
     Optional<List<Customer>> findAllByContactNameLike(@Param("name") String name);
 
     // ordine alfabetico per business name
