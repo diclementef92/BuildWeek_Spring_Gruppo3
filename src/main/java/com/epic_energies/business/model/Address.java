@@ -1,6 +1,5 @@
 package com.epic_energies.business.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -25,14 +24,14 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String streetName;
-    private Integer streetNumber;
-    private String place;
+	private String streetName; // via
+	private Integer streetNumber; // civico
+	private String place;// località
     private Integer postCode;
     @Enumerated(EnumType.STRING)
     private E_AddressType addressType;
 
     @ManyToOne
-    private Municipality Municipality;
+	private Municipality Municipality;// comune
 
 }

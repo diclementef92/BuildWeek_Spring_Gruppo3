@@ -1,13 +1,10 @@
 package com.epic_energies.business.service;
 
-import org.springframework.data.domain.Pageable;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,6 +82,14 @@ public class CustomerService {
 		return customerRep.getAllCustomersOrderByInsertData().get();
 	}
 
+	public List<Customer> findAllByLegalAddress(Address address) throws NoSuchElementException {
+		return customerRep.findAllByLegalAddress(address).get();
+	}
+
+	public List<Customer> findAllByOperativeAddress(Address address) throws NoSuchElementException {
+		return customerRep.findAllByOperativeAddress(address).get();
+	}
+
 	public String persistCustomer(Customer c) {
 		customerRep.save(c);
 		return "Customer correctly persisted on Database!";
@@ -129,6 +134,7 @@ public class CustomerService {
 		return (List<Customer>) customerRep.findAll();
 	}
 
+	// Pageable
     public Page<Customer> findAll(Pageable pageable) {
     	return (Page<Customer>) customerRep.findAll(pageable);
     }
