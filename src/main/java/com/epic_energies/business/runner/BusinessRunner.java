@@ -10,7 +10,10 @@ import com.epic_energies.business.service.InvoiceService;
 import com.epic_energies.business.service.MunicipalityService;
 import com.epic_energies.business.service.ProvinceService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class BusinessRunner implements ApplicationRunner {
 
     @Autowired
@@ -37,21 +40,20 @@ public class BusinessRunner implements ApplicationRunner {
    	    munService.importAllMunicipalities();
   	}
     	
-	System.out.println("Customer creato!");
-
-	for (int i = 0; i < 10; i++) {
-	    custService.persistFakeCustomer();
+	if (custService.findAll().isEmpty()) {
+		for (int i = 0; i < 50; i++) {
+			custService.persistFakeCustomer();
+		}
+		log.info("customers created!");
 	}
 
-	System.out.println("Fattura creato!");
-	for (int i = 0; i < 10; i++) {
-	    invoiceService.createFakeInvoice();
-	}
+	if (invoiceService.findAll().isEmpty()) {
+		for (int i = 0; i < 10; i++) {
+			invoiceService.createFakeInvoice();
+		}
+		log.info("invoices created!");
 
-	//  System.out.println(custService.getAllCustomersOrderByBusinessName().get());
-	//  System.out.println(custService.getAllCustomersOrderByAnnualIncome().get());
-	//  System.out.println(custService.getAllCustomersOrderByInsertData().get());
-	//  System.out.println(custService.getAllCustomersOrderByLastContactData().get());
+	}
 
     }
 
