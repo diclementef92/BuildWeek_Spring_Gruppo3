@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "b62ee0f5-299e-43ce-a417-09e8fc9ca5e1",
+		"_postman_id": "6cd67c30-23bd-4552-9edf-eae1e6613749",
 		"name": "BuildWeek #2 JAVA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25909383"
+		"_exporter_id": "25909383",
+		"_collection_link": "https://universal-robot-185755.postman.co/workspace/BW-%232-Java~dc896c7a-4254-4aea-96f3-51e742d16d3c/collection/13761257-6cd67c30-23bd-4552-9edf-eae1e6613749?action=share&creator=25909383&source=collection_link"
 	},
 	"item": [
 		{
@@ -232,7 +233,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjAzNCwiZXhwIjoxNjgzNzk2ODM0fQ.-9Iq0aSK4YiDFe_d2QA-ItqQtO-Z8n0oU_bStTf_VR9Kxad3EEX1_DllqDpoeqJc",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY5NSwiZXhwIjoxNjgzODM3NDk1fQ.rcdVFdOEi8fdoIKkvQuh0dDbiMFPcUjBjs1StPK4Vnqfj5jNchR52dia1mZyJFAf",
 											"type": "string"
 										}
 									]
@@ -254,7 +255,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "1"
+											"value": "16"
 										}
 									]
 								}
@@ -292,6 +293,50 @@
 							"response": []
 						},
 						{
+							"name": "Find all customers by b.name LIKE",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged/by-name-like/:name?page=0&size=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged",
+										"by-name-like",
+										":name"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "Tr"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Add new Customer",
 							"request": {
 								"auth": {
@@ -299,7 +344,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -338,7 +383,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -384,7 +429,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -423,7 +468,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY5NSwiZXhwIjoxNjgzODM3NDk1fQ.rcdVFdOEi8fdoIKkvQuh0dDbiMFPcUjBjs1StPK4Vnqfj5jNchR52dia1mZyJFAf",
 											"type": "string"
 										}
 									]
@@ -445,7 +490,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "2"
+											"value": "7"
 										}
 									]
 								}
@@ -455,8 +500,908 @@
 					]
 				},
 				{
-					"name": "Pageable GETTERS",
-					"item": []
+					"name": "Basic GET",
+					"item": [
+						{
+							"name": "Find all B.name Like",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/business-name-like/:name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"business-name-like",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "sch"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all C.name Like",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3OTQzNSwiZXhwIjoxNjgzODg0MjM1fQ.euY9u3sf-t3uz58jOaPHzm0Yb_w9C-Yi1SchzxOF04AJa6GkLDYWFWOpdIEH4T4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/contact-name-like/:name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"contact-name-like",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "wa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by last C.data ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/all-customers-by-last-contact-data",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"all-customers-by-last-contact-data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by I.data ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/all-customers-by-insert-data",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"all-customers-by-insert-data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by B.name ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/all-customers-by-business-name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"all-customers-by-business-name"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by A.income DESC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3OTQzNSwiZXhwIjoxNjgzODg0MjM1fQ.euY9u3sf-t3uz58jOaPHzm0Yb_w9C-Yi1SchzxOF04AJa6GkLDYWFWOpdIEH4T4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/all-customers-by-annual-income",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"all-customers-by-annual-income"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by legal address",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n            \"id\": 1,\r\n            \"streetName\": \"8389 Spencer Overpass\",\r\n            \"streetNumber\": 86,\r\n            \"place\": \"North Stepanie\",\r\n            \"postCode\": 18345,\r\n            \"addressType\": \"LEGAL_ADDRESS\",\r\n            \"municipality\": {\r\n                \"id\": 4580,\r\n                \"name\": \"Sestino\",\r\n                \"province\": {\r\n                    \"id\": 6,\r\n                    \"abbr\": \"AR\"\r\n                }\r\n            }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/customers/getAllCustomersByLegalAddress",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"getAllCustomersByLegalAddress"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by operative address",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3OTQzNSwiZXhwIjoxNjgzODg0MjM1fQ.euY9u3sf-t3uz58jOaPHzm0Yb_w9C-Yi1SchzxOF04AJa6GkLDYWFWOpdIEH4T4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n            \"id\": 7,\r\n            \"streetName\": \"860 Glenda Ports\",\r\n            \"streetNumber\": 85,\r\n            \"place\": \"Botsfordmouth\",\r\n            \"postCode\": 21603,\r\n            \"addressType\": \"OPERATIVE_ADDRESS\",\r\n            \"municipality\": {\r\n                \"id\": 2704,\r\n                \"name\": \"Villanova del Sillaro\",\r\n                \"province\": {\r\n                    \"id\": 50,\r\n                    \"abbr\": \"LO\"\r\n                }\r\n            }\r\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/customers/getAllCustomersByOperativeAddress",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"getAllCustomersByOperativeAddress"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by province (Legal Address)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI4MjA0MiwiZXhwIjoxNjgzODg2ODQyfQ.uK8pGylBDxUU1Xr12ar4wPHk78thuIDUc4cAcr3S0GgXafflMmmGLLkkGXKx25pI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"genova\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/customers/findAllByLegalAddressProvince",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"findAllByLegalAddressProvince"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by province (Operative Address)",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pageable GET",
+					"item": [
+						{
+							"name": "Find all customers paged",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "8"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by annual income ASC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=4&sort=annualIncome,ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "annualIncome,ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by annual income DESC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=4&sort=annualIncome,ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "annualIncome,ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customer by name ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=4&sort=businessName,ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "businessName,ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customer by name DESC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=4&sort=businessName,DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "businessName,DESC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by ins.date ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=8&sort=insertData,ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "8"
+										},
+										{
+											"key": "sort",
+											"value": "insertData,ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by ins.date DESC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=8&sort=insertData,DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "8"
+										},
+										{
+											"key": "sort",
+											"value": "insertData,DESC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by last contact ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=8&sort=lastContactData,ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "8"
+										},
+										{
+											"key": "sort",
+											"value": "lastContactData,ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by last contact DESC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged?page=0&size=8&sort=lastContactData,DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "8"
+										},
+										{
+											"key": "sort",
+											"value": "lastContactData,DESC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all customers by b.name LIKE",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged/by-name-like/:name?page=0&size=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged",
+										"by-name-like",
+										":name"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "Tr"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find customers in range of income",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged/income/:valore?page=0&size=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged",
+										"income",
+										":valore"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										}
+									],
+									"variable": [
+										{
+											"key": "valore",
+											"value": "50000&125000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find customers in range of ins. data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged/insertdata/:dates?page=0&size=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged",
+										"insertdata",
+										":dates"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										}
+									],
+									"variable": [
+										{
+											"key": "dates",
+											"value": "2018-01-01&2023-05-01"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find customers in range of last contact data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/customers/paged/lastcontact/:dates?page=0&size=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"paged",
+										"lastcontact",
+										":dates"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										}
+									],
+									"variable": [
+										{
+											"key": "dates",
+											"value": "2020-01-15&2023-01-01"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -496,7 +1441,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "2"
+											"value": "9"
 										}
 									]
 								}
@@ -541,7 +1486,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -550,7 +1495,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"streetName\": \"20135 Monsignor Pogliani\",\r\n    \"streetNumber\": 31,\r\n    \"place\": \"Marte\",\r\n    \"postCode\": 20135,\r\n    \"addressType\": \"LEGAL_ADDRESS\"\r\n}",
+									"raw": "{\r\n    \"streetName\": \"20135 Testariello Pazzo\",\r\n    \"streetNumber\": 31,\r\n    \"place\": \"Marte\",\r\n    \"postCode\": 20135,\r\n    \"addressType\": \"LEGAL_ADDRESS\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -580,7 +1525,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -589,7 +1534,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n        \"id\": 1,\r\n        \"streetName\": \"45678 Angolo dei babbi\",\r\n        \"streetNumber\": 45,\r\n        \"place\": \"Gubbio\",\r\n        \"postCode\": 45678,\r\n        \"addressType\": \"LEGAL_ADDRESS\"\r\n    }",
+									"raw": "{\r\n        \"id\": 1,\r\n        \"streetName\": \"45678 Angolo del Tucu\",\r\n        \"streetNumber\": 45,\r\n        \"place\": \"Gubbio\",\r\n        \"postCode\": 45678,\r\n        \"addressType\": \"LEGAL_ADDRESS\"\r\n    }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -626,7 +1571,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -687,7 +1632,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "2"
+											"value": "4"
 										}
 									]
 								}
@@ -698,7 +1643,302 @@
 				},
 				{
 					"name": "Pageable GETTERS",
-					"item": []
+					"item": [
+						{
+							"name": "Find all addresses paged",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI4NDU2OCwiZXhwIjoxNjgzODg5MzY4fQ.-P6o1e_FBl4GWI36X935QBkm0TrrBCtaaI-4QWU83v7He1eAXuJJ7K4wrIjYjuvg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/paged?page=0&size=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "place,DESC",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all addresses by place ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5NjczOSwiZXhwIjoxNjgzODAxNTM5fQ.EEgoWy1tfoZ5Bq45Kg8zptxbzeVejWiD0tkPQepnCcMDDRht_CKKlUMugTePuPGB",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/paged?page=0&size=5&sort=place,ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "place,ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all addresses by place DESC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/paged?page=0&size=5&sort=place,DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "place,DESC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all addresses by postcode ASC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/paged?page=0&size=5&sort=postCode,ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "postCode,ASC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all addresses by postcode DESC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/paged?page=0&size=5&sort=postCode,DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "postCode,DESC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all addresses type LEGAL",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI4NDQ1NSwiZXhwIjoxNjgzODg5MjU1fQ.kazBQcqBkb7aK_-lotGodWID0_tql1K80DhRUcmlpL0Da6RxrA8_Op-26e7gH4sa",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/paged/by-address-type/:type?page=0&size=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										"paged",
+										"by-address-type",
+										":type"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										}
+									],
+									"variable": [
+										{
+											"key": "type",
+											"value": "LEGAL_ADDRESS"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all addresses type OPERATIVE",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3OTQzNSwiZXhwIjoxNjgzODg0MjM1fQ.euY9u3sf-t3uz58jOaPHzm0Yb_w9C-Yi1SchzxOF04AJa6GkLDYWFWOpdIEH4T4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/addresses/paged/by-address-type/:type?page=0&size=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"addresses",
+										"paged",
+										"by-address-type",
+										":type"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										}
+									],
+									"variable": [
+										{
+											"key": "type",
+											"value": "OPERATIVE_ADDRESS"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -738,7 +1978,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "1"
+											"value": "89"
 										}
 									]
 								}
@@ -783,13 +2023,41 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
 								},
 								"method": "POST",
-								"header": []
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"year\": 2023,\r\n    \"date\": \"2023-05-05\",\r\n    \"amount\": 777.77,\r\n    \"number\": 400,\r\n    \"invoiceStatus\": \"RECEIVED\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/:customerId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										":customerId"
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": "5"
+										}
+									]
+								}
 							},
 							"response": []
 						},
@@ -801,7 +2069,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -810,7 +2078,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"id\": 1,\r\n    \"year\": 2019,\r\n    \"date\": \"1993-10-21T19:13:38.701+00:00\",\r\n    \"amount\": 779.04,\r\n    \"number\": 9,\r\n    \"invoice_status\": \"RECEIVED\",\r\n    \"customer\": {}\r\n}",
+									"raw": "{\r\n    \"id\": 231,\r\n    \"year\": 2022,\r\n    \"date\": \"1985-11-08\",\r\n    \"amount\": 222.22,\r\n    \"number\": 7,\r\n    \"invoiceStatus\": \"RECEIVED\",\r\n    \"customer\": {\r\n        \"id\": 7,\r\n        \"businessName\": \"Russel-Raynor\",\r\n        \"vatNumber\": 28640422149,\r\n        \"phoneNumber\": 3492868391,\r\n        \"contactEmail\": \"W.Feest@example.com\",\r\n        \"contactName\": \"Wilbert Feest\",\r\n        \"contactPhone\": 3492131496,\r\n        \"costumerType\": \"PA\"\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -832,7 +2100,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": null
+											"value": "231"
 										}
 									]
 								}
@@ -847,7 +2115,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -856,7 +2124,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"id\": 1,\r\n    \"year\": 2019,\r\n    \"date\": \"1993-10-21T19:13:38.701+00:00\",\r\n    \"amount\": 779.04,\r\n    \"number\": 9,\r\n    \"invoice_status\": \"RECEIVED\",\r\n    \"customer\": {}\r\n}",
+									"raw": "{\r\n    \"id\": 232,\r\n    \"year\": 2023,\r\n    \"date\": \"2023-05-05\",\r\n    \"amount\": 555.55,\r\n    \"number\": 400,\r\n    \"invoiceStatus\": \"RECEIVED\",\r\n    \"customer\": {\r\n        \"id\": 12,\r\n        \"businessName\": \"Hilpert Group\",\r\n        \"vatNumber\": 99523147824,\r\n        \"phoneNumber\": 3493670723,\r\n        \"contactEmail\": \"F.Schulist@example.com\",\r\n        \"contactName\": \"Fritz Schulist\",\r\n        \"contactPhone\": 3499026378,\r\n        \"costumerType\": \"SAS\"\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -886,7 +2154,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzE5MjE1NiwiZXhwIjoxNjgzNzk2OTU2fQ.ehkAwy0UI5OIhRhd6xzBynZV-kJRoAQpsbenI-GzJroNu-fmwsquQOyGF2lx0g68",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuQUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzI3MzkwOSwiZXhwIjoxNjgzODc4NzA5fQ.t_yTUtxx52nftcwyL8r-d77SdiXTUhTcgRZEMM67r6xK19EYvurNkv6KZ4Ee60Q4",
 											"type": "string"
 										}
 									]
@@ -908,7 +2176,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "1"
+											"value": "5"
 										}
 									]
 								}
@@ -918,8 +2186,595 @@
 					]
 				},
 				{
-					"name": "Pageable GETTERS",
-					"item": []
+					"name": "Basic GET",
+					"item": [
+						{
+							"name": "Find invoices by Status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/by-status/:status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"by-status",
+										":status"
+									],
+									"variable": [
+										{
+											"key": "status",
+											"value": "SENT",
+											"description": "SENT, SUSPENDED, EXPIRED, RECEIVED"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find invoices by Customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/by-customer-id/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"by-customer-id",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3",
+											"description": "Long id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoices by Year ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/by-year-order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"by-year-order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoices by Amount ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/by-amount-order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"by-amount-order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoices by Date ASC",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0ZXIuVUBleGFtcGxlLmNvbSIsImlhdCI6MTY4MzIzMjY2OCwiZXhwIjoxNjgzODM3NDY4fQ.nCuYzG7g9gAQii-Y7tURhQF6jt7UkcWouHzz8isIZJL6IO6ej73ZWSB6a3Uc7Gr2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/by-date-order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"by-date-order"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pageable GET",
+					"item": [
+						{
+							"name": "Find all invoice by customer",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged?page=0&size=4&sort=customer.id&direction=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "customer.id"
+										},
+										{
+											"key": "direction",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoice by status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged?page=0&size=4&sort=invoiceStatus&direction=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "invoiceStatus"
+										},
+										{
+											"key": "direction",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoice by date",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged?page=0&size=4&sort=date&direction=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "date"
+										},
+										{
+											"key": "direction",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoice by year",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged?page=0&size=4&sort=year&direction=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "year"
+										},
+										{
+											"key": "direction",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find all invoice by amount range",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged?page=0&size=4&sort=amount&direction=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										},
+										{
+											"key": "sort",
+											"value": "amount"
+										},
+										{
+											"key": "direction",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter invoice by customer",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"businessName\": \"White-Kshlerin\",\r\n    \"vatNumber\": 63313416158,\r\n    \"email\": \"info_@White-Kshlerin.com\",\r\n    \"insertData\": \"2023-05-11\",\r\n    \"lastContactData\": \"2023-05-11\",\r\n    \"annualIncome\": 896911,\r\n    \"pec\": \"White-Kshlerin@pec.it\",\r\n    \"phoneNumber\": 3495778571,\r\n    \"contactEmail\": \"D.Hoeger@example.com\",\r\n    \"contactName\": \"Denisse Hoeger\",\r\n    \"contactPhone\": 3490793433,\r\n    \"costumerType\": \"SAS\",\r\n    \"legalAddress\": {\r\n        \"id\": 1,\r\n        \"streetName\": \"277 Heath Summit\",\r\n        \"streetNumber\": 6,\r\n        \"place\": \"Lubowitzhaven\",\r\n        \"postCode\": 99825,\r\n        \"addressType\": \"LEGAL_ADDRESS\",\r\n        \"municipality\": {\r\n            \"id\": 692,\r\n            \"name\": \"Santo Stefano Belbo\",\r\n            \"province\": {\r\n                \"id\": 32,\r\n                \"abbr\": \"CN\"\r\n            }\r\n        }\r\n    },\r\n    \"operativeAddress\": null,\r\n    \"list_invoices\": [\r\n        {\r\n            \"id\": 7,\r\n            \"date\": \"2003-08-14T23:32:07.912+00:00\",\r\n            \"amount\": 571.11,\r\n            \"invoiceStatus\": \"EXPIRED\"\r\n        },\r\n        {\r\n            \"id\": 117,\r\n            \"date\": \"1981-05-14T21:17:47.733+00:00\",\r\n            \"amount\": 638.73,\r\n            \"invoiceStatus\": \"EXPIRED\"\r\n        },\r\n        {\r\n            \"id\": 335,\r\n            \"date\": \"1973-08-19T07:36:51.084+00:00\",\r\n            \"amount\": 341.91,\r\n            \"invoiceStatus\": \"RECEIVED\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged/bycustomer?page=0&size=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged",
+										"bycustomer"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter invoice by status",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"SUSPENDED\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged/bystatus?page=0&size=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged",
+										"bystatus"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter invoice by date",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"1965-10-29T17:06:04.331+00:00\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged/bydate?page=0&size=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged",
+										"bydate"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter invoice by year",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "2005",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged/byyear?page=0&size=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged",
+										"byyear"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter invoice by amount range",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/invoices/paged/byamountrange/:range?page=0&size=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"invoices",
+										"paged",
+										"byamountrange",
+										":range"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "4"
+										}
+									],
+									"variable": [
+										{
+											"key": "range",
+											"value": "50&100"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}
