@@ -2,7 +2,6 @@ package com.epic_energies.business.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,8 +31,8 @@ public class Municipality {
 	@Column(nullable = false)
 	private String name;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JsonIgnoreProperties({"municipalities", "name", "county"})
+	@ManyToOne
+	@JsonIgnoreProperties({ "municipalities", "county" })
 	private Province province;
 	
 		
