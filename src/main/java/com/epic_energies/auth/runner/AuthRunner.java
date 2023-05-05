@@ -33,30 +33,32 @@ public class AuthRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+		System.out.println("Run...");
 
-	System.out.println("Run...");
-	// setRoleDefault();
+		if (roleRepository.findAll().isEmpty()) {
+			setRoleDefault();
+		}
 
     }
 
     private void setRoleDefault() {
-	Role admin = new Role();
-	admin.setRoleName(ERole.ROLE_ADMIN);
-	roleRepository.save(admin);
+		Role admin = new Role();
+		admin.setRoleName(ERole.ROLE_ADMIN);
+		roleRepository.save(admin);
 
-	Role user = new Role();
-	user.setRoleName(ERole.ROLE_USER);
-	roleRepository.save(user);
+		Role user = new Role();
+		user.setRoleName(ERole.ROLE_USER);
+		roleRepository.save(user);
 
-	adminRole = new HashSet<Role>();
-	adminRole.add(admin);
-	adminRole.add(user);
+		adminRole = new HashSet<Role>();
+		adminRole.add(admin);
+		adminRole.add(user);
 
-	moderatorRole = new HashSet<Role>();
-	moderatorRole.add(user);
+		moderatorRole = new HashSet<Role>();
+		moderatorRole.add(user);
 
-	userRole = new HashSet<Role>();
-	userRole.add(user);
+		userRole = new HashSet<Role>();
+		userRole.add(user);
     }
 
 }

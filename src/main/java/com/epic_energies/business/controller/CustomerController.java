@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.epic_energies.business.model.Address;
 import com.epic_energies.business.model.Customer;
 import com.epic_energies.business.service.CustomerService;
 
@@ -102,6 +103,24 @@ public class CustomerController {
 	public ResponseEntity<?> getAllCustomersOrderByInsertData() {
 		try {
 			return new ResponseEntity<List<Customer>>(cusService.getAllCustomersOrderByInsertData(),HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/getAllCustomersByLegalAddress")
+	public ResponseEntity<?> getAllCustomersByLegalAddress(@RequestBody Address address) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByLegalAddress(address), HttpStatus.FOUND);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("/getAllCustomersByOperativeAddress")
+	public ResponseEntity<?> getAllCustomersByOperativeAddress(@RequestBody Address address) {
+		try {
+			return new ResponseEntity<List<Customer>>(cusService.findAllByOperativeAddress(address), HttpStatus.FOUND);
 		} catch (NoSuchElementException e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
