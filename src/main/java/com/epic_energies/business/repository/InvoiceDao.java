@@ -36,7 +36,7 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
 	List<Invoice> findByDateBetween(LocalDate date1, LocalDate date2);
 
     // filter per anno
-    List<Invoice> findByYear(Integer year);
+    List<Invoice> findAllOrderedByYear(Integer year);
 
     // filter importo fino a...
     List<Invoice> findByAmountLessThan(BigDecimal amount);
@@ -50,15 +50,15 @@ public interface InvoiceDao extends JpaRepository<Invoice, Long>, PagingAndSorti
 
     // ordine crescente degli importi fattura
     @Query("SELECT i FROM Invoice i ORDER BY i.amount ASC")
-	List<Invoice> findByAmount();
+	List<Invoice> findAllOrderedByAmount();
 
     // ordine di data inserimento dalla più recente
     @Query("SELECT i FROM Invoice i ORDER BY i.date DESC")
-    Optional<List<Invoice>> getAllInvoiceOrderByDate();
+    List<Invoice> findAllOrderedByDate();
 
     // ordine di inserimento descrescente della fattura per anno
     @Query("SELECT i FROM Invoice i ORDER BY i.year DESC")
-    Optional<List<Invoice>> findByYear();
+    List<Invoice> findAllOrderedByYear();
 
     // PAGEABLE QUERIES
     Page<Invoice> findAll(Pageable pageable);
